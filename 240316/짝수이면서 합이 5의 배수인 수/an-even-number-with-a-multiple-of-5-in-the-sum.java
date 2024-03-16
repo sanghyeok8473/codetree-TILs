@@ -12,7 +12,7 @@ public class Main {
 
         int n = sc.nextInt();
 
-        if(yes)
+        if(yes(n))
             System.out.print("Yes");
         else
             System.out.print("No");
