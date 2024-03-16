@@ -5,7 +5,7 @@ public class Main {
 
         int min = 101;
 
-        int[] arr = new int[3]{a, b, c};
+        int[] arr = new int[]{a, b, c};
 
         for(int i = 0 ; i < 3 ; i++){
             if(min > arr[i])
