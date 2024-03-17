@@ -37,7 +37,9 @@ public class Main {
 
         swap(q, w);
 
-        System.out.print(q.value+" "+w.value);
+        n = q.value;
+        m = w.value;
+        System.out.print(n+" "+m);
 
 
     }
