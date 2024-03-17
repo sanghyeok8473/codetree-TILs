@@ -27,7 +27,7 @@ public class Main {
     public static int lastDay(int y, int m){
         if (m==2 && yoon(y))
             return 29;
-        if(m==2 && (yoon(y))==false)
+        if(m==2 && (yoon(y)==false))
             return 28;
         if(m == 4|| m==6 || m==9 || m==11)
             return 30;
