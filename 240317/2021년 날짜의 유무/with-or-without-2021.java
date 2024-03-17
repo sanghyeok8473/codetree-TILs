@@ -1,10 +1,10 @@
 import java.util.Scanner;
 
 public class Main {
-    public static boolean lastDay(int m){
+    public static int lastDay(int m){
         if (m==2)
             return 28;
-        else if(m== 4|| m==6 || m==9 || m==11)
+        if(m == 4|| m==6 || m==9 || m==11)
             return 30;
 
         return 31;
