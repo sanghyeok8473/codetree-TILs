@@ -3,6 +3,9 @@ import java.util.Scanner;
 public class Main {
     public static boolean check(int n){
 
+        if(n==1)
+            return false;
+
         for(int i = 2 ; i < n ; i++){
             if(n%i==0){
                 return false;
@@ -21,8 +24,6 @@ public class Main {
             if(check(i)){
                 sum+=i;
             }
-
-                
         }
             
         return sum;
