@@ -1,25 +1,25 @@
 import java.util.Scanner;
 
 public class Main {
-    public static void cal(int a, char c, int b){
+    public static int cal(int a, char c, int b){
 
         if(c == '*'){
-            System.out.printf("%d * %d = %d", a, b, a*b);
+           return a*b;
         }
         else if(c == '+'){
-            System.out.printf("%d + %d = %d", a, b, a+b);
+            return a+b;
         }
         else if(c == '-'){
-            System.out.printf("%d - %d = %d", a, b, a-b);
+            return a-b;
         }
         else if(c == '/'){
-            System.out.printf("%d / %d = %d", a, b, a/b);
-        }
-        else{
-            System.out.print("False");
+            return a/b;
         }
 
-    } 
+        return 0;
+
+    }
+
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -28,7 +28,21 @@ public class Main {
         char c = sc.next().charAt(0);
         int b = sc.nextInt();
 
-        cal(a, c, b);
+        if(c == '*'){
+            System.out.printf("%d * %d = %d", a, b, cal(a,c,b));
+        }
+        else if(c == '+'){
+            System.out.printf("%d + %d = %d", a, b, cal(a,c,b));
+        }
+        else if(c == '-'){
+            System.out.printf("%d - %d = %d", a, b, cal(a,c,b));
+        }
+        else if(c == '/'){
+            System.out.printf("%d / %d = %d", a, b, cal(a,c,b));
+        }
+        else{
+            System.out.print("False");
+        }
 
     }
 }
