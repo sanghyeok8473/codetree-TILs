@@ -20,7 +20,7 @@ public class Main {
         int cnt = 0;
 
         for( int i = a ; i <= b ; i++){
-            if(check369(i) i%3==0)
+            if(check369(i) || i%3==0)
                 cnt++;
         }
             
