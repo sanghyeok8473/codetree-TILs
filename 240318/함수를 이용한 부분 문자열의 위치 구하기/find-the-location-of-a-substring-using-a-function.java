@@ -14,12 +14,12 @@ public class Main {
     public static String a;
     public static String b;
 
-    public static int include(String n, String m){
-        int N = n.length();
-        int M = m.length();
+    public static int include(){
+        int alen = a.length();
+        int blen = b.length();
 
-        for( int i = 0 ; i <= N-M ; i++ ){
-            if(n.substring(i, i+M).equals(m)){
+        for( int i = 0 ; i <= alen-blen ; i++ ){
+            if(a.substring(i, i+blen).equals(b)){
                 return i;
             }  
         }
@@ -34,6 +34,6 @@ public class Main {
         a = sc.next();
         b = sc.next();
 
-        System.out.print(include(a, b));
+        System.out.print(include());
     }
 }
