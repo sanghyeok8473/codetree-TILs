@@ -14,14 +14,12 @@ public class Main {
     public static Scanner sc = new Scanner(System.in);
 
     public static int fibo(int n){
-        if(n < 1)
-            return 0;
-        if(n >= 1 && n <= 2)
+        if(n == 1 || n == 2)
             return 1;
-        if(n>=3)
+        else if(n>=3)
             return fibo(n-2) + fibo(n-1);
-        
-        return 0;
+        else
+            return 0;
     }
 
 
