@@ -25,6 +25,6 @@ public class Main {
         n = sc.nextInt();
 
 
-        System.out.print(factorial(N));
+        System.out.print(factorial(n));
     }
 }
