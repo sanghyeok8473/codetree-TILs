@@ -13,8 +13,8 @@ public class Main {
 
     public static void jeol(int[] arr2){
         for(int i = 0 ; i < arr2.length ; i++){
-            if(arr[i] < 0)
-                arr[i]*=-1
+            if(arr2[i] < 0)
+                arr2[i]*=-1;
         }
 
     }
