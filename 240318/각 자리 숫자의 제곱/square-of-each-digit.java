@@ -17,7 +17,7 @@ public class Main {
         if(n < 10)
             return n*n;
 
-        return f(n-1) + n*n;
+        return f(n / 10) + (n%10)*(n%10);
 
     }
 
