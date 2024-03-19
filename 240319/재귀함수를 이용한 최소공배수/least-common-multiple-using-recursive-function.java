@@ -14,56 +14,26 @@ public class Main {
     public static int allmul = 1;
     public static Scanner sc = new Scanner(System.in);
 
-    /*public static int minValue(int n){
-        if(n==0)
-            return arr[0];
-
-        return Math.min(arr[n] , minValue(n-1));
-    }
-
-    public static int maxValue(int n){
-        if(n==0)
-            return arr[0];
-
-        return Math.max(arr[n] , maxValue(n-1));
-    }
-
-    public static int gcd(){
+    public static int gcd(int a, int b){
         int gcd = 1;
 
-        for(int i = minValue(n-1) ; i <= maxValue(n-1) ; i++ ){
-            for( int j = 0 ; j < n ; j++ ){
-                if(arr[j] % i != 0)
-                    break;
+        for(int i = 1 ; i <= Math.min(a, b) ; i++ ){
+            if(a%i == 0 && b%i == 0)
                 gcd = i;
-            }
         }
         return gcd;
-    } // 최소공배수는 최대공약수의 배수이다.*/
-
-    public static int allmul(int[] arr){
-        for( int i = 0 ; i < arr.length ; i++ ){
-                allmul *= arr[i];
-        }
-        return allmul;
-    }
-
-    
+    }  
 
     public static int lcm(int[] arr, int n){
-        int possiblelcm = allmul(arr) / arr[n];
+        int gcd = gcd(arr[n], arr[n-1]);
 
-        for(int i = 0 ; i < n ; i++ ){
-            if(possiblelcm % arr[i] != 0){
-                break;
-            }
-            return possiblelcm;
-        }
+        if(n==1)
+            return (arr[1]*arr[0])/gcd;
 
-        if(n == 0)
-            return allmul(arr);
+        arr[n-1] = (arr[n]*arr[n-1])/gcd;  // 두 수의 최소공배수는 두 수의 곱을 두 수의 최대공약수로 나눈 수이다.
 
-        return Math.min(allmul(arr), lcm(arr, n-1));
+
+        return lcm(arr, n-1);
     }
 
 
