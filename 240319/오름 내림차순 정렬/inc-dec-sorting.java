@@ -8,6 +8,7 @@ public class Main {
         int n = sc.nextInt();
 
         int[] arr = new int[n];
+        int[] arr2 = new int[n];
 
         for(int i = 0 ; i < n ; i++ )
             arr[i] = sc.nextInt();
@@ -20,6 +21,12 @@ public class Main {
         System.out.println();
 
         for(int i = n-1 ; i >= 0 ; i-- )
-            System.out.print(arr[i]+" ");
+            arr2[(n-1)-i] = arr[i];
+
+        for(int i = 0 ; i < n ; i++ )
+            System.out.print(arr2[i]+" ");
+
+        
+
     }
 }
