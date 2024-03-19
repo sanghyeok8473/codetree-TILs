@@ -51,13 +51,13 @@ public class Main {
     
 
     public static int lcm(int[] arr, int n){
-        int lcm = allmul(arr) / arr[n];
+        int possiblelcm = allmul(arr) / arr[n];
 
         for(int i = 0 ; i < n ; i++ ){
-            if(lcm % arr[i] != 0){
+            if(possiblelcm % arr[i] != 0){
                 break;
             }
-            return lcm;
+            return possiblelcm;
         }
 
         if(n == 0)
