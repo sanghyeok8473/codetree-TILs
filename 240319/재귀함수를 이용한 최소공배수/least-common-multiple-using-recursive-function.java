@@ -25,6 +25,9 @@ public class Main {
     }  
 
     public static int lcm(int[] arr, int n){
+        if(n==0)
+            return arr[0];
+
         int gcd = gcd(arr[n], arr[n-1]);
 
         if(n==1)
