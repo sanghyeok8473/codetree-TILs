@@ -58,7 +58,6 @@ class intWrapper{
 
 public class Main {
     public static int n;
-    public static int allmul = 1;
     public static Scanner sc = new Scanner(System.in);
 
     public static int gcd(int a, int b){
