@@ -25,7 +25,9 @@ public class Main {
         int idx = 1;
 
         for(int i = 1 ; i <= n ; i++ ){
-            if( str[i].substring(0, len).equals(T) ){
+            if( len > str[i].length())
+                continue;
+            else if( str[i].substring(0, len).equals(T) ){
                 after_Str[idx] = str[i];
                 idx++;
             }
