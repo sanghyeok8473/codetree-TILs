@@ -16,7 +16,7 @@ public class Main {
         Arrays.sort(charB);
 
         String sorted_a = new String(charA);
-        String sorted_a = new String(charB);
+        String sorted_b = new String(charB);
 
         if(sorted_a.equals(sorted_b))
             System.out.print("Yes");
