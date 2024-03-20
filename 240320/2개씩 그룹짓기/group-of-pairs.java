@@ -3,7 +3,7 @@ import java.util.Arrays;
 
 public class Main {
     public static int max = 0, n = 0, nowSum = 0;
-    public static int[] a = new int[100];
+    public static int[] a = new int[2001];
 
     public static int sumMax(){
         for(int i = 1 ; i <= n ; i++ ){
