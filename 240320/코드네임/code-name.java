@@ -4,11 +4,6 @@ import java.util.Arrays;
 class codename {
     char code;
     int score;
-    
-    public codename(){
-        this.code= '0';
-        this.score = 0;
-    }
 
     public codename(char code, int score){
         this.code = code;
