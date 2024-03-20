@@ -1,7 +1,7 @@
 import java.util.Arrays;
 import java.util.Scanner;
 
-class Student{
+class Student implements Comparable<Student>{
     String name;
     int height;
     int weight;
@@ -10,6 +10,11 @@ class Student{
         this.name = name;
         this.height = height;
         this.weight = weight;
+    }
+
+    @Override
+    public int compareTo(Student student){
+        return this.height - student.height;
     }
 };
 
@@ -31,7 +36,7 @@ public class Main {
         }
 
 
-        Arrays.sort(students, (a, b) -> a.height - b.height); // 국어 점수 기준 오름차순 정렬
+        Arrays.sort(students);
 
         for(int i = 0; i < n; i++)
             System.out.println(students[i].name + " " + students[i].height + " " + students[i].weight);
