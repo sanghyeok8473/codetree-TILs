@@ -7,17 +7,10 @@ public class Main {
 
     public static int sumMax(){
         for(int i = 1 ; i <= n ; i++ ){
-            for( int j = 1 ; j <= n ; j++ ){
-                if(i+j == n+1){
-                    nowSum = a[i]+a[j];
-                    if(max < nowSum){
-                        max = nowSum;
-                    }
-                        
-                }
-            }
+            nowSum = a[i] + a[n+1-i];
+            if(max < nowSum)
+                max = nowSum;
         }
-
         return max;
     }
 
