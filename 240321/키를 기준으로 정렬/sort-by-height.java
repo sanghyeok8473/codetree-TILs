@@ -1,54 +1,39 @@
-import java.util.Scanner;
 import java.util.Arrays;
+import java.util.Scanner;
 
-class inform {
+class Student{
     String name;
-    String addr;
-    String city;
+    int height;
+    int weight;
 
-    public inform(String n, String a, String c){
-        this.name = n;
-        this.addr = a;
-        this.city = c;
+    public Student(String name, int height, int weight){
+        this.name = name;
+        this.height = height;
+        this.weight = weight;
     }
 };
 
 public class Main {
-    public static int n;
-    public static int[] a  = new int[101];
-
-
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        int N = sc.nextInt();
+        int n = sc.nextInt();
 
-        inform[] I3 = new inform[N];
+        Student[] students = new Student[n];
 
-        for(int i = 0 ; i < N ; i++ ){
-            String n = sc.next();
-            String a = sc.next();
-            String c = sc.next();
+        for(int i = 0 ; i < n ; i++){
+            String name = sc.next();
+            int height = sc.nextInt();
+            int weight = sc.nextInt();
 
-            I3[i] = new inform(n, a, c);
+            students[i] = new Student(name, height, weight);
+
         }
 
-        String[] Name = new String[N];
 
-        int idx = 0;
+        Arrays.sort(students, (a, b) -> a.height - b.height); // 국어 점수 기준 오름차순 정렬
 
-        for(int i = 0 ; i < N ; i++ ){
-            Name[i] = I3[i].name;
-        }
-
-        Arrays.sort(Name);
-
-        for(int i = 0 ; i < N ; i++ ){
-            if(I3[i].name == Name[N-1]){
-                System.out.println("name "+I3[i].name);
-                System.out.println("addr "+I3[i].addr);
-                System.out.println("city "+I3[i].city);
-            }
-        }
+        for(int i = 0; i < 5; i++)
+            System.out.println(students[i].name + " " + students[i].height + " " + students[i].weight);
     }
 }
