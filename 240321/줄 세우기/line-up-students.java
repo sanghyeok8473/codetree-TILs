@@ -14,7 +14,7 @@ class Student implements Comparable<Student>{
     public int compareTo(Student student){
         if(this.h == student.h){
             if(this.w == student.w)
-                return student.n - this.n;
+                return this.n - student.n;
             return student.w - this.w;
         }
             
