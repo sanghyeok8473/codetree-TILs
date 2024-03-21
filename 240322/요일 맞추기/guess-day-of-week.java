@@ -25,24 +25,25 @@ public class Main {
         }
         elapsedDate2 += d2;
 
-        int elapsed12 = elapsedDate1 - elapsedDate2;
-        int elapsed21 = elapsedDate2 - elapsedDate1;
+        int elapsed = elapsedDate1 - elapsedDate2;
+        if(elapsed < 0)
+            elapsed *= -1;
 
         if( elapsedDate1 > elapsedDate2){
-            elapsed12 %= 7;
+            elapsed %= 7;
 
-            if(elapsed12 == 0)
+            if(elapsed == 0)
                 System.out.print(day[1]);
             else
-                System.out.print(day[8-elapsed12]);
+                System.out.print(day[8-elapsed]);
         }
         else if( elapsedDate1 < elapsedDate2){
-            elapsed21 %= 7;
+            elapsed %= 7;
 
-            if(elapsed21 == 0)
+            if(elapsed == 0)
                 System.out.print(day[1]);
             else
-                System.out.print(day[1+elapsed21]);
+                System.out.print(day[1+elapsed]);
         }
         else
             System.out.print(day[1]);
