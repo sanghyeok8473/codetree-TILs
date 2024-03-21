@@ -26,6 +26,9 @@ public class Main {
 
         int elapsedtime = elapsedDate2 - elapsedDate1;
 
+        if(elapsedtime == 0)
+            elapsedtime++;
+
         System.out.print(elapsedtime);
 
     }
