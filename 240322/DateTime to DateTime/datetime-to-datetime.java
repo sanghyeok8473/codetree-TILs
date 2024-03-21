@@ -14,7 +14,7 @@ public class Main {
 
         int elapsedtime = elapsedDate + elapsedMinute + elapsedSecond;
 
-        if( elapsedtime <= 0 )
+        if( elapsedtime < 0 )
             elapsedtime = -1;
 
         System.out.print(elapsedtime);
