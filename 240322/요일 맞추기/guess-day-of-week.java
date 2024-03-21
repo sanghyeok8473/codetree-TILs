@@ -28,9 +28,7 @@ public class Main {
         int elapsed = elapsedDate2 - elapsedDate1;
         while(elapsed < 0)
             elapsed += 7;
-
-        elapsed %= 7;
             
-        System.out.print(day[elapsed]);
+        System.out.print(day[elapsed % 7]);
     }
 }
