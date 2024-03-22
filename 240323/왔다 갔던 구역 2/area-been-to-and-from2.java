@@ -1,41 +1,58 @@
 import java.util.Scanner;
 
 public class Main {
+    //길이가 무한하다면 숫자들부터 받아서 배열에 넣고 배열들의 합을 구하자. R일때는 더하고, L일때는 빼면서 가장 큰 좌표가 몇이였는지를 구해서 배열크기 구하자. 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int n, x, sum;
         char O;
 
-        int idx = 100;
-
         n = sc.nextInt();
 
-        int[] block = new int[201];
+        int[] block = new int[2001];
+        int[] move = new int[n];
+        char[] dir = new char[n];
 
         for(int i = 0 ; i < n ; i++ ){
-            x = sc.nextInt();
-            O = sc.next().charAt(0);
+            move[i] = sc.nextInt();
+            dir[i] = sc.next().charAt(0);
+        }
 
-            if(O == 'R'){
-                for(int j = idx ; j < idx + x ; j++){
+        int nowIdx = 1000;
+
+        for(int i = 0 ; i < n ; i++ ){
+            if(dir[i] == 'R'){
+                for(int j = nowIdx ; j <= nowIdx + move[i] ; j++){
                     block[j]++;
                 }
-                idx += x;
+                nowIdx += move[i];
             }
-            else{
-                for(int j = idx ; j > idx - x ; j--){
+            else if(dir[i] == 'L'){
+                for(int j = nowIdx ; j >= nowIdx - move[i] ; j--){
                     block[j]++;
                 }
-                idx -= x;
+                nowIdx -= move[i];
             }
         }
 
         sum = 0;
 
-        for(int i = 0 ; i < 201 ; i++ ){
-            if(block[i] >= 2)
-                sum++;
+        for(int i = 0 ; i < 2001 ; i++ ){
+            if(block[i] >= 2){
+                int idx  = i;
+                while(true){
+                    if(block[idx] >= 2){
+                        sum++;
+                        idx++;
+                    }  
+                    else
+                        break;
+                }
+                i = idx - 1;
+                sum--;
+            }
         }
+        
         System.out.print(sum);
 
         
