@@ -33,29 +33,32 @@ public class Main {
                 }
                 nowIdx -= move[i];
             }
-        }
+        } // 입력받는 부분까지는 문제없음.
 
         sum = 0;
 
-        for(int i = 0 ; i < 2001 ; i++ ){
+        for(int i = 0 ; i < 2001 ; i++ ){ // 2이상인 것의 개수를 구하고, 크기가 나눠지는 횟수를 빼면 됨. 크기를 나누는 횟수를 어떻게 잡을지 고민.
             if(block[i] >= 2){
                 int idx = i;
                 while(true){
                     if(block[idx] >= 2){
                         idx++;
+                        if(idx == nowIdx)
+                            sum--;
                     }  
                     else
                         break;
                 }
                 idx--;
                 sum += (idx - i);
+                
                 i = idx;
             }
         }
-
-        for(int i = 988 ; i <= 1003 ; i++){
-            System.out.print(block[i]);
-        }
+        System.out.print(sum);
+        
+        /*for(int i = 989 ; i <= 1002 ; i++)
+            System.out.print(block[i]);*/
         
         
 
