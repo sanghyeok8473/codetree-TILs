@@ -9,8 +9,11 @@ public class Main {
         int num = 0;
 
         int n = sc.nextInt();
-        if(n < 10)
-            System.out.print((int)Math.pow(2,n));
+
+        if( n == 1 )
+            System.out.print(1);
+        else if( n == 0 )
+            System.out.print(0);
         else{
             int i = 1;
 
@@ -25,10 +28,11 @@ public class Main {
                     break;
                 }
             }
+            System.out.print(num);
         }
         
         
-        System.out.print(num);
+        
             
     }
 }
