@@ -44,7 +44,7 @@ public class Main {
                     if(block[idx] >= 2){
                         idx++;
                         if(idx == nowIdx)
-                            sum--;
+                            break;
                     }  
                     else
                         break;
