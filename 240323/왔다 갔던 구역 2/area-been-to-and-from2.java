@@ -39,21 +39,25 @@ public class Main {
 
         for(int i = 0 ; i < 2001 ; i++ ){
             if(block[i] >= 2){
-                int idx  = i;
+                int idx = i;
                 while(true){
                     if(block[idx] >= 2){
-                        sum++;
                         idx++;
                     }  
                     else
                         break;
                 }
-                i = idx - 1;
-                sum--;
+                idx--;
+                sum += (idx - i);
+                i = idx;
             }
         }
+
+        for(int i = 988 ; i <= 1003 ; i++){
+            System.out.print(block[i]);
+        }
         
-        System.out.print(sum);
+        
 
         
     }
