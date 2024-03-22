@@ -14,8 +14,6 @@ public class Main {
         for(int i = 0 ; i < n.length(); i++ ){
             num = num*a + (n.charAt(i) - '0');
         } // a진수로 표현된 n을 10진수로 변환(num)
-
-        System.out.println(num);
         
 
         int[] digits = new int[200];
