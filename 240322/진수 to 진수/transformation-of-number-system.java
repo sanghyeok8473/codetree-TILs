@@ -12,8 +12,10 @@ public class Main {
         int cnt = 0, num = 0;
 
         for(int i = 0 ; i < n.length(); i++ ){
-            num = num*8 + (n.charAt(i) - '0');
+            num = num*a + (n.charAt(i) - '0');
         } // a진수로 표현된 n을 10진수로 변환(num)
+
+        System.out.println(num);
         
 
         int[] digits = new int[200];
@@ -27,7 +29,7 @@ public class Main {
             digits[cnt++] = num % b;
             num /= b;
 
-        }
+        } // 10진수인 num을 b진수로 변경
         for(int i = cnt ; i >= 0 ; i--)
             System.out.print(digits[i]);
         
