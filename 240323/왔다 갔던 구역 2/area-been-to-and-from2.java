@@ -43,7 +43,7 @@ public class Main {
                 while(true){
                     if(block[idx] >= 2){
                         idx++;
-                        if(idx == nowIdx)
+                        if(block[idx] > block[idx-1] && block[idx+1] > block[idx-1])
                             break;
                     }  
                     else
@@ -51,13 +51,26 @@ public class Main {
                 }
                 idx--;
                 sum += (idx - i);
-                
                 i = idx;
             }
         }
-        System.out.print(sum);
+        System.out.println(sum);
+
+        /*for(int i = 0 ; i < 2001 ; i ++ ){
+            if(block[i] != 0){
+                System.out.println(i);
+                break;
+            }
+        }
+
+        for(int i = 2000 ; i >= 0 ; i -- ){
+            if(block[i] != 0){
+                System.out.println(i);
+                break;
+            }
+        }
         
-        /*for(int i = 989 ; i <= 1002 ; i++)
+        for(int i = 935 ; i <= 1005 ; i++)
             System.out.print(block[i]);*/
         
         
