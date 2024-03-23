@@ -22,13 +22,13 @@ public class Main {
 
         for(int i = 0 ; i < n ; i++ ){
             if(dir[i] == 'R'){
-                for(int j = nowIdx ; j <= nowIdx + move[i] ; j++){
+                for(int j = nowIdx ; j < nowIdx + move[i] ; j++){
                     block[j]++;
                 }
                 nowIdx += move[i];
             }
             else if(dir[i] == 'L'){
-                for(int j = nowIdx ; j >= nowIdx - move[i] ; j--){
+                for(int j = nowIdx - move[i] ; j < nowIdx ; j++){
                     block[j]++;
                 }
                 nowIdx -= move[i];
@@ -39,39 +39,10 @@ public class Main {
 
         for(int i = 0 ; i < 2001 ; i++ ){ // 2이상인 것의 개수를 구하고, 크기가 나눠지는 횟수를 빼면 됨. 크기를 나누는 횟수를 어떻게 잡을지 고민.
             if(block[i] >= 2){
-                int idx = i;
-                while(true){
-                    if(block[idx] >= 2){
-                        idx++;
-                        if(block[idx] > block[idx-1] && block[idx+1] > block[idx-1])
-                            break;
-                    }  
-                    else
-                        break;
-                }
-                idx--;
-                sum += (idx - i);
-                i = idx;
+                sum ++;
             }
         }
         System.out.println(sum);
-
-        /*for(int i = 0 ; i < 2001 ; i ++ ){
-            if(block[i] != 0){
-                System.out.println(i);
-                break;
-            }
-        }
-
-        for(int i = 2000 ; i >= 0 ; i -- ){
-            if(block[i] != 0){
-                System.out.println(i);
-                break;
-            }
-        }
-        
-        for(int i = 935 ; i <= 1005 ; i++)
-            System.out.print(block[i]);*/
         
         
 
