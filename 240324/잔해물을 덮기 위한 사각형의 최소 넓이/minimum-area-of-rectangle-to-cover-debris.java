@@ -64,7 +64,7 @@ public class Main {
                 System.out.print(cnt);
             }
         }
-        if(y1[0] >= y1[1] && y2[0] <= y2[1]){
+        else if(y1[0] >= y1[1] && y2[0] <= y2[1]){
             if( x1[0] == x1[1] && x2[0] == x2[1] )
                 System.out.print(first);
             else if( x1[0] >= x1[1] && x2[0] >= x2[1] ){
@@ -74,5 +74,7 @@ public class Main {
                 System.out.print(cnt);
             }
         }
+        else
+            System.out.print(first);
     }
 }
