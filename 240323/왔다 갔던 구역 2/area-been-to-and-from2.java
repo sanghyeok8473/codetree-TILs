@@ -29,7 +29,7 @@ public class Main {
             }
             else if(dir[i] == 'L'){
                 for(int j = nowIdx - move[i] ; j < nowIdx ; j++){
-                    block[j]++; =
+                    block[j]++;
                 }
                 nowIdx -= move[i];
             }
