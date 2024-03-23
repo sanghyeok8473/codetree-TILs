@@ -33,6 +33,7 @@ public class Main {
                 }
                 if(move[i] != 1)
                     nowIdx += move[i] - 1;
+                
             }
             else if(dir[i] == 'L'){
                 for(int j = nowIdx ; j > nowIdx - move[i] ; j--){
@@ -43,7 +44,8 @@ public class Main {
                         block[j] = 'W';
                 }
                 if(move[i] != 1)
-                    nowIdx -= move[i] + 1;
+                    nowIdx = nowIdx + 1 - move[i];
+                
             }
         } 
 
