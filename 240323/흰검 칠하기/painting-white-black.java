@@ -10,7 +10,8 @@ public class Main {
         n = sc.nextInt();
 
         char[] block = new char[2000001];
-        int[] cnt = new int[2000001];
+        int[] cntWhite = new int[2000001];
+        int[] cntBlack = new int[2000001];
         int[] move = new int[n];
         char[] dir = new char[n];
 
@@ -24,23 +25,25 @@ public class Main {
         for(int i = 0 ; i < n ; i++ ){
             if(dir[i] == 'R'){
                 for(int j = nowIdx ; j < nowIdx + move[i] ; j++){
-                    cnt[j]++;
-                    if(cnt[j] >= 4)
+                    cntBlack[j]++;
+                    if(cntBlack[j] >= 2 && cntWhite[j] >= 2)
                         block[j]= 'G';
                     else
                         block[j] = 'B';
                 }
-                nowIdx += move[i];
+                if(move[i] != 1)
+                    nowIdx += move[i] - 1;
             }
             else if(dir[i] == 'L'){
-                for(int j = nowIdx - 1 ; j >= nowIdx - move[i] ; j--){
-                    cnt[j]++;
-                    if(cnt[j] >= 4)
+                for(int j = nowIdx ; j > nowIdx - move[i] ; j--){
+                    cntWhite[j]++;
+                    if(cntBlack[j] >= 2 && cntWhite[j] >= 2)
                         block[j]= 'G';
                     else
                         block[j] = 'W';
                 }
-                nowIdx -= move[i];
+                if(move[i] != 1)
+                    nowIdx -= move[i] + 1;
             }
         } 
 
@@ -54,6 +57,7 @@ public class Main {
             else if(block[i] == 'G')
                 cntG++;
         }
+
         System.out.println(cntW+" "+cntB+" "+cntG);
         
         
