@@ -28,8 +28,8 @@ public class Main {
                 nowIdx += move[i];
             }
             else if(dir[i] == 'L'){
-                for(int j = nowIdx ; j < nowIdx - move[i] ; j++){
-                    block[j]++;
+                for(int j = nowIdx - move[i] ; j < nowIdx ; j++){
+                    block[j]++; =
                 }
                 nowIdx -= move[i];
             }
