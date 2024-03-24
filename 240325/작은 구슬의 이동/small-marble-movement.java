@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class Main {
     public static boolean inRange(int x, int y){
-        return (x>=0 && x<n && y>=0 && y<n);
+        return (x >= 0 && x < n && y >= 0 && y < n);
     }
 
     public static int getDir(char d){
@@ -19,7 +19,7 @@ public class Main {
     public static int n, t, r, c;
     public static char d;
     public static int[] dx = new int[]{1, 0, 0, -1};
-    public static int[] dy = new int[]{0, -1, 1, 0};
+    public static int[] dy = new int[]{0, 1, -1, 0};
                                      //E  N   S  W
     
 
