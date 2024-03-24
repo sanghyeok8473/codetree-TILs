@@ -68,11 +68,11 @@ public class Main {
         int min = Math.min(A_sum + 1, B_sum + 1);
 
         for(int i = 1 ; i < min ; i++){
-            if(A_timeplace[i] == B_timeplace){
+            if(A_timeplace[i] == B_timeplace[i]){
                 System.out.print(i);
                 break;
             }
-            if(A_timeplace[i] != B_timeplace && i==min-1){
+            if(A_timeplace[i] != B_timeplace[i] && i==min-1){
                 System.out.print(-1);
             }
         }
