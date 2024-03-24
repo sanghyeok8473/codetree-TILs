@@ -48,16 +48,6 @@ public class Main {
             System.out.println(cnt-1); // 0일때 제외
         else
             System.out.println(cnt); // 선두가 바뀌는 경우가 없을때는 -1이아닌 0출력
-
-
-        
-        /*for(int i = 0 ; i < 15 ; i++)
-            System.out.print(a_pos[i]+" ");
-
-        System.out.println();
-
-        for(int i = 0 ; i < 15 ; i++)
-            System.out.print(b_pos[i]+" ");*/
             
     }
 }
