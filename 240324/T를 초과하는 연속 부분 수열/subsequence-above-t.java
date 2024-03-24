@@ -16,11 +16,11 @@ public class Main {
         int nowCnt = 0;
 
         for(int i = 0 ; i < n ; i++){
-            if(i>=1 && (arr[i] > arr[i-1]) && arr[i-1] > t){
+            if(i >= 1 && (arr[i] > arr[i-1]) && arr[i] > t){
                 nowCnt++;
             }
             else{
-                nowCnt = 1;
+                nowCnt = 0;
             }
             
             max = Math.max(max, nowCnt);
