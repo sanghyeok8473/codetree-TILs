@@ -26,7 +26,7 @@ public class Main {
             }
             else if( dir.charAt(i) == 'F'){
                 nx += dx[dirNum];
-                nx += dy[dirNum];
+                ny += dy[dirNum];
             }
         }
         
