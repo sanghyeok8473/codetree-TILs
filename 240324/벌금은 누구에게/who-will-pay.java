@@ -17,11 +17,11 @@ public class Main {
 
             count[q]++;
 
-            if(count[q] == k){
+            if(count[q] >= k){
                 System.out.print(q);
                     break;
             }
-            if(q==m-1){
+            if(i==m-1){
                 System.out.print(-1);
             }
         }
