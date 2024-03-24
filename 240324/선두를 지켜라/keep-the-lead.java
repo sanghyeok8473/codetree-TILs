@@ -47,7 +47,7 @@ public class Main {
         if(cnt > 0)
             System.out.println(cnt-1); // 0일때 제외
         else
-            System.out.println(0);
+            System.out.println(cnt); // 선두가 바뀌는 경우가 없을때는 -1이아닌 0출력
 
 
         
