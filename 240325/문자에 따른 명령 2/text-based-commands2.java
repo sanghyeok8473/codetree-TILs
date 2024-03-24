@@ -12,22 +12,23 @@ public class Main {
         int ny = 0;
         int dirNum = 3;
 
-        //for(int i = 0 ; i < N ; i++){
-        char dir = sc.next().charAt(0);
-
-            
-
-            if( dir == 'L'){
+       
+        String dir =  sc.next();
+        
+        for(int i = 0 ; i < 100000 ; i++){
+            if(i == dir.length())
+                break;
+            else if( dir.charAt(i) == 'L'){
                 dirNum = (dirNum + 3) % 4;
             }
-            if( dir == 'R'){
+            else if( dir.charAt(i) == 'R'){
                 dirNum = (dirNum + 1) % 4;
             }
-
-            
-            nx += dx[dirNum];
-            ny += dy[dirNum];
-        //}
+            else if( dir.charAt(i) == 'F'){
+                nx += dx[dirNum];
+                nx += dy[dirNum];
+            }
+        }
         
         System.out.print(nx+" "+ny);
         
