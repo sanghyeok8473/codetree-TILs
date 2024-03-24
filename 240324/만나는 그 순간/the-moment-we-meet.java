@@ -6,7 +6,6 @@ public class Main {
 
         int n = sc.nextInt();
         int m = sc.nextInt();
-        int offset = 1000000;
 
         char[] A_dir = new char[n];
         int[] A_move = new int[n];
