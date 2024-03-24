@@ -19,9 +19,11 @@ public class Main {
             if(i >= 1 && (arr[i] > arr[i-1]) && arr[i] > t){
                 nowCnt++;
             }
-            else{
-                nowCnt = 0;
+            else if(i==0 && arr[i] > t){
+                nowCnt = 1;
             }
+            else
+                nowCnt = 0;
             
             max = Math.max(max, nowCnt);
         }
