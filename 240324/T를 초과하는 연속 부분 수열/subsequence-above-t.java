@@ -13,21 +13,17 @@ public class Main {
             arr[i] = sc.nextInt();
 
         int max = 0;
-        int nowCnt = 1;
-        boolean none = false;
+        int nowCnt = 0;
 
         for(int i = 0 ; i < n ; i++){
             if(i >= 1 && arr[i] > t && arr[i-1] > t){
-                none = true;
                 nowCnt++;
             }
             else
-                nowCnt = 1;
+                nowCnt = 0;
             
-            max = Math.max(max, nowCnt);
+            max = Math.max(max, nowCnt+1);
         }
-        if(none == false)
-            max = 0;
 
         System.out.print(max);
             
