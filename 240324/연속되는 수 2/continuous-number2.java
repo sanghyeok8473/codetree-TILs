@@ -22,10 +22,10 @@ public class Main {
                     nowCnt++;
             }
             else if(arr[i] != arr[i-1] ){
-                if(nowCnt > max)
-                    max = nowCnt;
                 nowCnt = 1;
             }
+            if(nowCnt > max)
+                max = nowCnt;
         }
 
         System.out.print(max);
