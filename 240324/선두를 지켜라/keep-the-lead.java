@@ -44,8 +44,10 @@ public class Main {
             if((a_pos[i] > b_pos[i] && a_pos[i-1] <= b_pos[i-1]) || (a_pos[i] < b_pos[i] && a_pos[i-1] >= b_pos[i-1]))
                 cnt++;
         }
-
-        System.out.println(cnt-1); // 0일때 제외
+        if(cnt > 0)
+            System.out.println(cnt-1); // 0일때 제외
+        else
+            System.out.println(0);
 
 
         
