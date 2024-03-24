@@ -24,8 +24,8 @@ public class Main {
             else if(arr[i] != arr[i-1] ){
                 nowCnt = 1;
             }
-            if(nowCnt > max)
-                max = nowCnt;
+            
+            max = Math.max(max, nowCnt);
         }
 
         System.out.print(max);
