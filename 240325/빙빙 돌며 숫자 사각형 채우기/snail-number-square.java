@@ -31,7 +31,7 @@ public class Main {
         for(int i = 0 ; i < n*m - 1 ; i++){
             int nx = x + dx[dirNum], ny = y + dy[dirNum];
             if(!inRange(nx, ny) || arr[nx][ny] != 0){
-                dirNum = (dirNum + 1) % 4;
+                dirNum = rotate(dirNum);
             }
 
             cnt++;
