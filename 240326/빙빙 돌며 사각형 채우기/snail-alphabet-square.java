@@ -35,7 +35,7 @@ public class Main {
             }
 
             if(cnt == 'Z')
-                cnt-=25z;
+                cnt-=25;
             else
                 cnt++;
 
