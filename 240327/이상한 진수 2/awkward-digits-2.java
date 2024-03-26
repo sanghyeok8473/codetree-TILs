@@ -27,7 +27,7 @@ public class Main {
         for(int i = 0 ; i < len ; i++){
             sum = (sum*2) + number[i];
         }
-        if(sum!=0)
+        if(sum!=1)
             System.out.print(sum);
         else
             System.out.print(0);
