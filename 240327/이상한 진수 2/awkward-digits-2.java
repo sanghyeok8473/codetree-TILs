@@ -26,11 +26,8 @@ public class Main {
                 number[i] = 1;
                 break;
             }
-            if(i==len-1){
-                sum--;
+            if(i==len-1)
                 allOne = true;
-            }
-                
         }
 
         for(int i = 0 ; i < len ; i++){
