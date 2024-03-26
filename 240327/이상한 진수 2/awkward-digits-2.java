@@ -12,17 +12,18 @@ public class Main {
         for(int i = 0 ; i < len ; i++)
             number[i] = num.charAt(i) - '0'; // 정수형 배열에 2진법숫자를 집어넣음.
         
-
-        
+        int sum = 0;
 
         for(int i = 0 ; i < len ; i++){
             if(number[i] == 0){
                 number[i] = 1;
                 break;
             }
-        }
+            if(i==len-1){
+                sum--;
+            }
 
-        int sum = 0;
+        }
 
         for(int i = 0 ; i < len ; i++){
             sum = (sum*2) + number[i];
