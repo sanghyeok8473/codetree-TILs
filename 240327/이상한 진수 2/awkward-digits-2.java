@@ -18,6 +18,8 @@ public class Main {
             System.out.print(0);
             System.exit(0);
         }
+        
+        boolean allOne = false;
 
         for(int i = 0 ; i < len ; i++){
             if(number[i] == 0){
@@ -26,16 +28,17 @@ public class Main {
             }
             if(i==len-1){
                 sum--;
+                allOne = true;
             }
-
+                
         }
 
         for(int i = 0 ; i < len ; i++){
             sum = (sum*2) + number[i];
         }
-        if(sum!=1)
-            System.out.print(sum);
+        if(allOne)
+            System.out.print(sum-1);
         else
-            System.out.print(0);
+            System.out.print(sum);
     }
 }
