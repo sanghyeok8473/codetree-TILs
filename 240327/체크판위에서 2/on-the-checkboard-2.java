@@ -41,7 +41,7 @@ public class Main {
         }
 
         for(int i = 0 ; i < firstIdx ; i++){ // 가능한 두 번째 좌표 모두 구하기
-            for(int j = firstX[i]+1 ; j < c-1 ; j++){
+            for(int j = firstX[i]+1 ; j < r-1 ; j++){
                 for(int k = firstY[i]+1 ; k < c-1 ; k++){
                     if(arr[j][k] != arr[firstX[i]][firstY[i]]){
                         cnt++;
