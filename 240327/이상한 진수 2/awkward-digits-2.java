@@ -30,6 +30,6 @@ public class Main {
         if(sum!=0)
             System.out.print(sum);
         else
-            System.out.print(1);
+            System.out.print(0);
     }
 }
