@@ -14,6 +14,11 @@ public class Main {
         
         int sum = 0;
 
+        if(len == 1 && number[0] == 1){
+            System.out.print(0);
+            System.exit(0);
+        }
+
         for(int i = 0 ; i < len ; i++){
             if(number[i] == 0){
                 number[i] = 1;
