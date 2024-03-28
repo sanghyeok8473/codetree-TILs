@@ -26,7 +26,7 @@ public class Main {
         else{ //현재 위치값이 L일때
             int cnt = 0;
 
-            if(y + 2  <= n && board[x][y+1] == 'E' && board[x][y+2] == 'E')      
+            if(y + 2  <= m && board[x][y+1] == 'E' && board[x][y+2] == 'E')      
                 cnt++;
             if(y - 2 >= 0 && board[x][y-1] == 'E' && board[x][y-2] == 'E')
                 cnt++;
@@ -44,7 +44,7 @@ public class Main {
         else{ //현재 위치값이 L일때
             int cnt = 0;
 
-            if(x - 2  >= 0 && y + 2 <= n && board[x-1][y+1] == 'E' && board[x-2][y+2] == 'E')      
+            if(x - 2  >= 0 && y + 2 <= m && board[x-1][y+1] == 'E' && board[x-2][y+2] == 'E')      
                 cnt++;
             if(x + 2  <= n && y - 2 >= 0 && board[x+1][y-1] == 'E' && board[x+2][y-2] == 'E')
                 cnt++;
@@ -62,7 +62,7 @@ public class Main {
         else{ //현재 위치값이 L일때
             int cnt = 0;
 
-            if(x + 2 <= n && y + 2 <= n && board[x+1][y+1] == 'E' && board[x+2][y+2] == 'E')      
+            if(x + 2 <= n && y + 2 <= m && board[x+1][y+1] == 'E' && board[x+2][y+2] == 'E')      
                 cnt++;
             if(x - 2  >= 0 && y - 2 >= 0 && board[x-1][y-1] == 'E' && board[x-2][y-2] == 'E')
                 cnt++;
