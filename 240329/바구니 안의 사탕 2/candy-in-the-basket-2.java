@@ -29,7 +29,7 @@ public class Main {
             System.exit(0);
         }
         else{
-            for(int i = k ; i <= R-(k*2) ; i++){  // 구간의 시작점.
+            for(int i = k ; i <= R-k ; i++){  // 구간의 중간점.
                 nowSum = 0;
                 for(int j = i-k ; j <= i+k ; j++)
                     nowSum += candyPlaced[j];
