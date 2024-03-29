@@ -28,9 +28,9 @@ public class Main {
         }
 
         //조건 : G로만 이루어져 있거나, H로만 이루어져 있거나, G와 H의 개수가 같음
-        // ((countH == 0 && countG != 0) || (countH != 0 && countG == 0) || countH==countG )
-        for(int i = 0 ; i < b-1 ; i++){         // 사진의 시작점.
-            for(int j = i+1 ; j < b ; j++){     // 사진의 마지막 점.
+
+        for(int i = 0 ; i < b ; i++){         // 구간의 시작점.
+            for(int j = i+1 ; j <= b ; j++){     // 구간의 마지막 점.
                 countG = 0; countH = 0;
                 for(int k = i ; k <= j ; k++){
                     if(placed[k] =='G')
