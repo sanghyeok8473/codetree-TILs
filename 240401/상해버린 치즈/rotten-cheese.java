@@ -104,6 +104,9 @@ public class Main {
                 max = Math.max(max, cnt);
             }
         }
-        System.out.print(max);
+        if(n==1)
+            System.out.print(p);
+        else
+            System.out.print(max);
     }
 }
