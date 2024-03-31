@@ -16,7 +16,7 @@ class Gift implements Comparable<Gift>{
         if(this.s == gift.s)
             return this.p - gift.p;
         if(now == next)
-            return this.s - gift.s
+            return this.s - gift.s;
         return now - next;
     }
 };
