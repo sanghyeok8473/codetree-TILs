@@ -30,7 +30,7 @@ public class Main {
                 cnt++;
         }
 
-        System.out.print(cnt);
+        System.out.print(n-cnt); //cnt는 겹치는 선분의 개수이므로 안겹치는 선분의 개수는 전체에서 빼면 됨.
 
 
     }
