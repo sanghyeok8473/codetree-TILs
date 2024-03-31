@@ -47,9 +47,9 @@ public class Main {
         for(int i = 0 ; i < n ; i++){    
             if(i==0){
                 for(int x = 1 ; x <= 9 ; x++){
-                    for(int y = 0 ; y <= 9 ; y++){
+                    for(int y = 1 ; y <= 9 ; y++){
                         if(y != x){
-                            for(int z = 0 ; z <= 9 ; z++){  // 서로 다른 수로 이루어진 세자리수 xyz가 조건을 만족하는지 여부를 체크.
+                            for(int z = 1 ; z <= 9 ; z++){  // 서로 다른 수로 이루어진 세자리수 xyz가 조건을 만족하는지 여부를 체크.
                                 if(z != x && z != y){
                                     int first = numbers[i]/100, second = (numbers[i]-(first*100))/10, third = numbers[i]%10; // 각 자리 숫자 추출
                                     int cnt1 = checkCountOne(x, y, z, first, second, third), cnt2 = checkCountTwo(x, y, z, first, second, third);
