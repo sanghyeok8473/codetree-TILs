@@ -104,8 +104,8 @@ public class Main {
                 max = Math.max(max, cnt);
             }
         }
-        if(n==1)
-            System.out.print(p);
+        if(m==1)
+            System.out.print(n);
         else
             System.out.print(max);
     }
