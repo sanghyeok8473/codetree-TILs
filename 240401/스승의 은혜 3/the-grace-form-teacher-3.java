@@ -11,7 +11,7 @@ class Gift implements Comparable<Gift>{
 
     @Override
     public int compareTo(Gift gift){
-        return (this.p + this.s) - (gift.p + gift.s);
+        return (this.p/2 + this.s) - (gift.p/2 + gift.s);
     }
 };
 
