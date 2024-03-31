@@ -54,9 +54,6 @@ public class Main {
             }
             maxCnt = Math.max(maxCnt, nowCnt);
         }
-        for(int i = 0 ; i < n ; i++){
-            System.out.println(gift[i].p+" "+gift[i].s);
-        }
         System.out.print(maxCnt);
 
 
