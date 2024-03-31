@@ -29,7 +29,7 @@ public class Main {
             for(int j = 0 ; j < n ; j++){
                 nowCal -= pi2[j];
 
-                if(b>=0)
+                if(nowCal>=0)
                     nowCnt++;
                 else
                     break;
