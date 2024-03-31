@@ -11,7 +11,7 @@ class Gift implements Comparable<Gift>{
 
     @Override
     public int compareTo(Gift gift){
-        return this.p - gift.p;
+        return (this.p + this.s) - (gift.p + gift.s);
     }
 };
 
@@ -53,6 +53,9 @@ public class Main {
                     break;
             }
             maxCnt = Math.max(maxCnt, nowCnt);
+        }
+        for(int i = 0 ; i < n ; i++){
+            System.out.println(gift[i].p+" "+gift[i].s);
         }
         System.out.print(maxCnt);
 
