@@ -9,9 +9,10 @@ public class Main {
         
         return checkNums(x/10) + 1;
     }
+
     public static boolean palindrome(int x){
         int nums = checkNums(x);
-        int y  = x;
+        int y = x;
         int[] nowNums = new int[nums + 1];
         int[] nowPalindrome = new int[nums + 1];
 
@@ -26,10 +27,10 @@ public class Main {
             nowPalindrome[i] = y%10;
             y /= 10;
         }
-
         for(int i = 1 ; i <= nums ; i++){
-            if(nowNums[i] != nowPalindrome[nums + 1 - i])
+            if(nowNums[i] != nowPalindrome[i]){
                 return false;
+            } 
         }
         return true;
             
