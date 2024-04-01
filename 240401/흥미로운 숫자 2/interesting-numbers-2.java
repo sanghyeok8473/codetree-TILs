@@ -11,9 +11,10 @@ public class Main {
     }
     public static boolean checkInterest(int x){
         int nums = checkNums(x);
+        int y  = x;
         int[] nowNums = new int[nums + 1];
         for(int i = 1 ; i < nums ; i++){
-            int div = Math.pow(10,nums-i);
+            int div = (int)Math.pow(10,nums-i);
             nowNums[i] = x/div;
             x -= nowNums[i]*div;
         }
@@ -23,10 +24,19 @@ public class Main {
             if(nowNums[i] != check)
                 cnt++;
         }
-        if(cnt == 1 || cnt == nums-1)
+        if(cnt == 1)
             return true;
+        else if(cnt == nums-1){
+            int check2 = nowNums[2];
+            for(int i = 2 ; i <= nums ; i++){
+                if(nowNums[i] != check2)
+                    return false;
+            }
+            return true;
+        }
         else
             return false;
+            
     }
 
     public static void main(String[] args) {
