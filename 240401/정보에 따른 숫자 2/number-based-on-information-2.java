@@ -57,7 +57,7 @@ public class Main {
             }
                 
         }
-        System.out.print(cnt);d
+        System.out.print(cnt);
 
     }
 }
