@@ -11,7 +11,6 @@ public class Main {
     }
     public static boolean checkInterest(int x){
         int nums = checkNums(x);
-        int y  = x;
         int[] nowNums = new int[nums + 1];
         for(int i = 1 ; i < nums ; i++){
             int div = (int)Math.pow(10,nums-i);
