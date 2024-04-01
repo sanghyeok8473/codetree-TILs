@@ -34,7 +34,7 @@ class Report implements Comparable<Report>{
         return this.t - report.t;        // 시간순으로 오름차순 정렬
     }
 };
-// 약의 최대 개수 : 특정 치즈가 상한 치즈일 가능성이 있을 때, 그 치즈를 먹은 모든 사람의 합
+// 약의 최대 개수 : 특정 치즈가 상한 치즈일 가능성이 있을 때, 그 치즈를 먹은 모든 사람의 합들 중 가장 큰 수
 public class Main {
     public static int n, m, d, s, nowCal, nowCnt = 0, max = -1;
 
@@ -58,29 +58,14 @@ public class Main {
             report[i] = new Report(p, t);
         }
         // 입력 파트 끝
-        Arrays.sort(cheese); // 사건을 치즈의 번호순으로 정렬(같으면 시간순으로 정렬)
+        Arrays.sort(cheese); // 사건을 치즈의 번호순으로 정렬(같으면 시간순으로 정렬, 둘다 같으면 사람 번호 순으로 정렬)
         Arrays.sort(report); // 기록을 시간순으로 정렬
 
         // 기록된 사람 중 한명이라도 먹지 않았거나, 아프기 전에 먹지 않았으면 상한 치즈가 아님.
-        // 기록된 사람이 모두 먹고, 그 모두가 아파지기 전에 먹었다고 기록되어있어야 상한치즈임.
+        // 기록된 사람중 한 명이라도 먹었고, 그 사람이 아파지기 전에 먹었다고 기록되어있으면 상한치즈일 수 있음.
 
         for(int i = 1 ; i <= m ; i++){ // 각 치즈에 대해 상한 치즈일 가능성 체크
             boolean none = false;
-            for(int k = 0 ; k < s ; k++){
-                for(int j = 0 ; j < d ; j++){ 
-                    if(cheese[j].m == i){
-                        if(report[k].p == cheese[j].p)
-                            break;
-                        if(j == d-1 || cheese[j+1].m != i){  // 여기까지 왔다는건 report에 있는 사람이 현재 치즈에 없다는 뜻.
-                            none = true;
-                            break;
-                        }
-                    }
-                }
-            }
-            if(none == true) // report에 있는 사람이 현재 치즈를 먹은 적이 없다면 상한치즈일 수 없음.
-                continue;
-            none = false;
             for(int k = 0 ; k < s ; k++){
                 for(int j = 0 ; j < d ; j++){
                     if(cheese[j].m == i && cheese[j].p == report[k].p){
@@ -93,7 +78,7 @@ public class Main {
                     }
                 }
                 int cnt = 0;
-                if(none == true) // report에 있는 사람이 모두 현재 치즈를 먹었으나 더 아픈 이후에 먹음
+                if(none == true) // report에 있는 사람이 현재 치즈를 먹었으나 더 아픈 이후에 먹음
                     continue;
                 else{
                     for(int j = 0 ; j < d ; j++){
