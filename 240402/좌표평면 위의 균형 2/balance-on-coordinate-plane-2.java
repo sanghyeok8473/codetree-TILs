@@ -35,18 +35,13 @@ public class Main {
         for(int i = 0 ; i < n ; i++){
             seg[i][0] = sc.nextInt();
             seg[i][1] = sc.nextInt();
-
-            maxX = Math.max(seg[i][0], maxX);
-            minX = Math.min(seg[i][0], minX);
-            maxY = Math.max(seg[i][1], maxY);
-            minY = Math.min(seg[i][1], minY);
         }
         if(maxX == minX || maxY == minY){
             System.out.print(n/2);
             System.exit(0);
         }
-        for(int i = minX+1 ; i < maxX ; i+=2 ){
-            for(int j = minY+1 ; j < maxY ; j+=2){
+        for(int i = 0 ; i < 101 ; i+=2 ){
+            for(int j = 0 ; j < 101 ; j+=2){
                 quad1 = 0; quad2 = 0; quad3 = 0; quad4 = 0;
                 for(int k = 0 ; k < n ; k++){
                     int nowX = seg[k][0], nowY = seg[k][1];
