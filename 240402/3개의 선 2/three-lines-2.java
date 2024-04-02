@@ -1,21 +1,30 @@
 import java.util.Scanner;
+import java.util.Arrays;
 
 public class Main {
     public static int n, maxX = 21, maxY= 21, minX = 1, minY = 1, nowSum = 0, maxSum = 0;
 
     public static int countsX(int[][] seg){ // seg의 0이 아닌 서로다른 x좌표의 개수를 반환
-        int xCnt = 1;
+        int  xCnt = 1; int[] segX = new int[n];
+        for(int i = 0 ; i < n ; i++){
+            segX[i] = seg[i][0];
+        }
+        Arrays.sort(segX);
         for(int i = 0 ; i < n-1 ; i++){
-            if(seg[i+1][0] != seg[i][0] && seg[i+1][0] != 0 && seg[i][0] != 0)
+            if(segX[i+1] != segX[i] && segX[i+1] != 0 && segX[i] != 0)
                 xCnt++;
         }
         return xCnt;
     }
 
     public static int countsY(int[][] seg){ // seg의 서로다른 y좌표의 개수를 반환
-        int  yCnt = 1;
+        int  yCnt = 1; int[] segY = new int[n];
+        for(int i = 0 ; i < n ; i++){
+            segY[i] = seg[i][1];
+        }
+        Arrays.sort(segY);
         for(int i = 0 ; i < n-1 ; i++){
-            if(seg[i+1][1] != seg[i][1] && seg[i+1][1] != 0 && seg[i][1] != 0)
+            if(segY[i+1] != segY[i] && segY[i+1] != 0 && segY[i] != 0)
                 yCnt++;
         }
         return yCnt;
@@ -77,10 +86,9 @@ public class Main {
                 System.exit(0);
             }
         }
-        
 
 
-        System.out.print(0);    // 여기까지 왔다는건 축에 평행한 선분 3개도 안되고
+        System.out.print(0);    // 여기까지 왔다는건 한 축에만 평행한 선분 3개도 안되고
                                 // 축에 평행한 선분이 각각 2개 1개 또는 1개 2개일 때도 안된다는 의미임. 따라서 하나의 축에 평행한선이
                                 // 0개, 1개, 2개, 3개일 때를 모두 확인 해 봐도 안된다는 의미.
 
