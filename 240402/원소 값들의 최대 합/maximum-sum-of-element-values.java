@@ -19,12 +19,7 @@ public class Main {
             }
             maxSum = Math.max(maxSum, nowSum);
         }
-
-
         
         System.out.print(maxSum);
-
-        
-
     }
 }
