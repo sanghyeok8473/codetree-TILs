@@ -21,13 +21,12 @@ public class Main {
         for(int i = 0 ; i < n ; i++)
             nums[i] = sc.nextInt();
         
-        for(int min = 1 ; min <= 10000 ; min++){ // 미리 생각해보는 최소값. 이 최소값이 일단 먼저 배열에 존재해야함. 존재할 때 k범위 이내를 다합한 최대값을 구함.
-            if(!arrayExist(min)){
+        for(int min = 1 ; min <= 10000 ; min++){ // 미리 생각해보는 최소값. 
+            if(!arrayExist(min))                    // 이 최소값이 일단 먼저 배열에 존재해야함. 존재하지 않으면 불가능한 조합이므로 패스.
                 continue;
-            }
             cnt = 0;
             for(int i = 0 ; i < n ; i++){
-                if(nums[i] >= min && nums[i] - min <= k)
+                if(nums[i] >= min && nums[i] - min <= k)  // 미리 생각해본 최소값부터 k이하로 크면 cnt를 추가.
                     cnt++;
             }
             max = Math.max(cnt, max);
