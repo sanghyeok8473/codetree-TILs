@@ -41,6 +41,10 @@ public class Main {
             maxY = Math.max(seg[i][1], maxY);
             minY = Math.min(seg[i][1], minY);
         }
+        if(maxX == minX || maxY == minY){
+            System.out.print(n/2);
+            System.exit(0);
+        }
         for(int i = minX+1 ; i < maxX ; i+=2 ){
             for(int j = minY+1 ; j < maxY ; j+=2){
                 quad1 = 0; quad2 = 0; quad3 = 0; quad4 = 0;
