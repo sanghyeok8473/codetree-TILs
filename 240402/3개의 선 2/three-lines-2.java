@@ -1,9 +1,9 @@
 import java.util.Scanner;
 
 public class Main {
-    public static int n, maxX = 20, maxY= 20, minX = 0, minY = 0, nowSum = 0, maxSum = 0;
+    public static int n, maxX = 21, maxY= 21, minX = 1, minY = 1, nowSum = 0, maxSum = 0;
 
-    public static int countsX(int[][] seg){ // seg의 서로다른 x좌표의 개수를 반환
+    public static int countsX(int[][] seg){ // seg의 0이 아닌 서로다른 x좌표의 개수를 반환
         int xCnt = 1;
         for(int i = 0 ; i < n-1 ; i++){
             if(seg[i+1][0] != seg[i][0] && seg[i+1][0] != 0 && seg[i][0] != 0)
@@ -26,7 +26,6 @@ public class Main {
 
         n = sc.nextInt();
         int[][] seg = new int[n][2];
-        int[][] newSeg = new int[n][2];
 
         if(n<=3){                   // 점이 3개 이하일땐 반드시 축에 평행한 선분 3개로 지날 수 있음.
             System.out.print(1);
@@ -53,30 +52,29 @@ public class Main {
         }
         // 이제 성립하려면 2개 1개 또는 1개 2개일때만 가능.
         for(int i = minX ; i <= maxX ; i++ ){   //y축에 평행하는 선분이 1개일 때
-            int idx = 0;
-            for(int j = 0 ; j < n ; j++){ 
+            int idx = 0; int[][] newSeg = new int[n][2];
+            for(int j = 0 ; j < n ; j++){
                 if(seg[j][0] != i){
                     newSeg[idx][1] = seg[j][1];
                     idx++;
                 }
-                if(countsY(newSeg) == 2){
-                    System.out.print(1);
-                    System.exit(0);
-                }
-
+            }
+            if(countsY(newSeg) == 2){
+                System.out.print(1);
+                System.exit(0);
             }
         }
         for(int i = minY ; i <= maxY ; i++ ){   // x축에 평행하는 선분이 한개일 때
-            int idx = 0;
+            int idx = 0; int[][] newSeg = new int[n][2];
             for(int j = 0 ; j < n ; j++){ 
                 if(seg[j][1] != i){
                     newSeg[idx][0] = seg[j][0];
                     idx++;
                 }
-                if(countsX(newSeg) == 2){
-                    System.out.print(1);
-                    System.exit(0);
-                }
+            }
+            if(countsX(newSeg) == 2){
+                System.out.print(1);
+                System.exit(0);
             }
         }
         
