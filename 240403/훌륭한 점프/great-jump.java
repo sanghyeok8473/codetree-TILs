@@ -5,7 +5,7 @@ public class Main {
     public static int[] nums = new int[1001];
 
     public static int returnMinIdx (int x){
-        int min = n+1, minIdx = 0;
+        int min = 101, minIdx = 0;
         for(int i = x + 1 ; i <= x + k ; i++){
             if(min >= nums[i]){
                 min = nums[i];
@@ -24,7 +24,7 @@ public class Main {
             nums[i] = sc.nextInt();
 
         max = Math.max(nums[0], nums[n-1]);
-        
+
         while(nowIdx < n-1){
             max = Math.max(max, nums[returnMinIdx(nowIdx)]);
             nowIdx = returnMinIdx(nowIdx);
