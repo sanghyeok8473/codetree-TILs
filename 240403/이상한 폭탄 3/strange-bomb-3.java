@@ -18,12 +18,13 @@ public class Main {
             max = Math.max(bombs[i], max);
         }
             
-
+        boolean none = true;
         for(int i = 0 ; i < n ; i++){
             for(int j = 0 ; j < n ; j++){
                 if(j==i || Math.abs(j-i) > k)
                     continue;
                 if(bombs[j] == bombs[i]){
+                    none = false;
                     if(alreadyBoom[i] == 0){
                         checkBoom[bombs[i]]++;
                         alreadyBoom[i] = 1;
@@ -35,8 +36,11 @@ public class Main {
                 }
             }
         }
-
-        int maxCnt = 0, maxNum = 0;
+        if(none){
+            System.out.print(0);
+            System.exit(0);
+        }
+        int maxCnt = -1, maxNum = -1;
         for(int i = 0 ; i <= max ; i++){
             if(checkBoom[i] > maxCnt){
                 maxNum = i;
@@ -46,7 +50,6 @@ public class Main {
                 maxNum = i;
             }
         }
-
         System.out.print(maxNum);
     }
 }
