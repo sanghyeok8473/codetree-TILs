@@ -15,12 +15,12 @@ public class Main {
         // 나타날 수 없음.
 
         for(int i = 1 ; i <= n ; i++){        //연속 부분문자열의 길이            
-            for(int j = 0 ; j < n/2 ; j++){    // 연속 부분문자열시작점.
+            for(int j = 0 ; j < n-i ; j++){    // 연속 부분문자열의 시작점.
                 exist = false;
                 nowSub = str.substring(j, j + i);
-                for(int k = j + i ; k <= n-i ; k++){
-                    compareSub = str.substring(k, k+i);
-                    if(compareSub.equals(nowSub)){
+                for(int k = 0 ; k < n-i ; k++){ // 비교할 연속 부분문자열의 시작점
+                    compareSub = str.substring(k, k + i);
+                    if(k != j && compareSub.equals(nowSub)){
                         exist = true;
                         break;
                     }
