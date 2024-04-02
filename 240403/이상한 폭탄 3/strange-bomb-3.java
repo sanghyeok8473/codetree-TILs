@@ -4,7 +4,7 @@ import java.util.Arrays;
 public class Main {
     public static int n, k, max = -1;
     public static int[] bombs = new int[100];
-    public static int[] checkBoom = new int[100];
+    public static int[] checkBoom = new int[1000001];
     public static int[] alreadyBoom = new int[100];
 
     // 한개일 때는 무조건 차가 0이므로 최대 숫자의 개수는 최소 1
@@ -35,7 +35,7 @@ public class Main {
                 }
             }
         }
-        
+
         int maxCnt = 0, maxNum = 0;
         for(int i = 0 ; i <= max ; i++){
             if(checkBoom[i] > maxCnt){
