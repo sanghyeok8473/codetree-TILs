@@ -1,13 +1,13 @@
 import java.util.Scanner;
 
 public class Main {
-    public static int n, k, max = 0, nowIdx = 0;
+    public static int n, k, max, nowIdx = 0;
     public static int[] nums = new int[1001];
 
     public static int returnMinIdx (int x){
         int min = n+1, minIdx = 0;
         for(int i = x + 1 ; i <= x + k ; i++){
-            if(min > nums[i]){
+            if(min >= nums[i]){
                 min = nums[i];
                 minIdx = i;
             }
@@ -23,10 +23,10 @@ public class Main {
         for(int i = 0 ; i < n ; i++)
             nums[i] = sc.nextInt();
 
-        max = nums[nowIdx];
+        max = Math.max(nums[0], nums[n-1]);
         
         while(nowIdx < n-1){
-            max = Math.max(nums[nowIdx], nums[returnMinIdx(nowIdx)]);
+            max = Math.max(max, nums[returnMinIdx(nowIdx)]);
             nowIdx = returnMinIdx(nowIdx);
         }
 
