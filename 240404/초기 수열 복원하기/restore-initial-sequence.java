@@ -74,7 +74,7 @@ public class Main {
         for(int i = 0 ; i < n ; i++)
             nums[i] = i+1;                                  // 1부터 n까지의 수를 사전순으로 했을 때 가장 앞에 있는 값
         
-        for(int seq = 1 ; seq <= factorial(n) ; seq++){     //최대 가짓수는 factorial(n)임.
+        for(int seq = 1 ; seq <= Integer.MAX_VALUE ; seq++){     //최대 가짓수는 factorial(n)임.
             for(int i = 0 ; i < n-1 ; i++){
                 nowNums[i] = nums[i]+nums[i+1];
             }
