@@ -75,7 +75,7 @@ public class Main {
         for(int seq = 1 ; seq <= factorial(n) ; seq++){     //최대 가짓수는 factorial(n)임.
             if(sumAns(nums)){
                 for(int i = 0 ; i < n ; i++){
-                    System.out.print(nums[i]+" ");
+                    System.out.print(nums[i]+"  ");
                 }
                 break;
             }
