@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class Main {
     public static int n, maxDist = 0, nowDiff, minDiff = 30;
-    public static int[] seats = new int[20];
+    public static int[] seats = new int[100];
 
     public static int nearest(int x, int y){
         int[] newSeats = new int[n];
