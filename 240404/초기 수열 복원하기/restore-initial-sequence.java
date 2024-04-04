@@ -1,8 +1,7 @@
 import java.util.Scanner;
-import java.util.Arrays;
 
 public class Main {
-    public static int n, max = -1;
+    public static int n;
     public static int[] sums = new int[1000];
     public static int[] nums = new int[1001];
 
@@ -17,14 +16,14 @@ public class Main {
             now += nums[n-i] * (int)Math.pow(10,i-1);
        
         while(true){
-            now++;
+            now++;                      // 현재 배열에 들어있는 값을 1 증가.
             int nowCheck = now;
             for(int i = n-1 ; i >= 0 ; i--){
                 nums[i] = nowCheck%10;
                 nowCheck /= 10;
-            } // nums배열에 1이 증가된 now값을 순서대로 집어넣음.
+            }               // nums배열에 1이 증가된 now값을 순서대로 집어넣음.(1이 증가한 값으로 업데이트)
             for(int i = 0 ; i < n ; i++){
-                if(isRightArray(nums))
+                if(isRightArray(nums))      // nums가 사전순으로 다음에 나오는 숫자의 배열이 되었으면 next를 끝냄.
                     break;
             }
             if(isRightArray(nums)){
