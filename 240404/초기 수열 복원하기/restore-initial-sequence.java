@@ -5,7 +5,6 @@ public class Main {
     public static int n, max = -1;
     public static int[] sums = new int[1000];
     public static int[] nums = new int[1001];
-    public static int[] nowNums = new int[1001];
 
     // 해결 아이디어 : 1부터 n까지의 숫자를 무작위로 배치한 배열이 sums 조건을 만족하는지 계속 체크
     // 사전순으로 가장 앞선 수열을 출력하므로 사전 순으로 가장 먼저 오는 수부터 시작해서 비교하는 조건
@@ -57,7 +56,7 @@ public class Main {
 
     public static boolean sumAns(int[] arr){
         for(int i = 0 ; i < n-1 ; i++){
-            if(arr[i] != sums[i])
+            if(sums[i] != (arr[i]+arr[i+1]))
                 return false;
         }
         return true;
@@ -75,10 +74,7 @@ public class Main {
             nums[i] = i+1;                                  // 1부터 n까지의 수를 사전순으로 했을 때 가장 앞에 있는 값
         
         for(int seq = 1 ; seq <= factorial(n) ; seq++){     //최대 가짓수는 factorial(n)임.
-            for(int i = 0 ; i < n-1 ; i++){
-                nowNums[i] = nums[i]+nums[i+1];
-            }
-            if(sumAns(nowNums)){
+            if(sumAns(nums)){
                 for(int i = 0 ; i < n ; i++){
                     System.out.print(nums[i]+" ");
                 }
