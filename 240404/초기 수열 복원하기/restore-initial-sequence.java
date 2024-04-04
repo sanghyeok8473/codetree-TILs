@@ -11,22 +11,18 @@ public class Main {
     // 사전순을 기준으로 한칸 뒤에 있는 배열을 만들고, 이 배열이 성립하면 끝.
 
     public static void next(){
-        int now = 0;
-        for(int i = n ; i >= 1 ; i--)  // 현재 배열에 들어있는 값을 구함.
-            now += nums[n-i] * (int)Math.pow(10,i-1);
-       
+        int idx = n-1;
         while(true){
-            now++;                      // 현재 배열에 들어있는 값을 1 증가.
-            int nowCheck = now;
-            for(int i = n-1 ; i >= 0 ; i--){
-                nums[i] = nowCheck%10;
-                nowCheck /= 10;
-            }               // nums배열에 1이 증가된 now값을 순서대로 집어넣음.(1이 증가한 값으로 업데이트)
-            for(int i = 0 ; i < n ; i++){
-                if(isRightArray(nums))      // nums가 사전순으로 다음에 나오는 숫자의 배열이 되었으면 next를 끝냄.
-                    break;
+            if(nums[idx] != 9){
+                nums[idx]++;
+                break;
             }
-            if(isRightArray(nums)){
+            else{
+                nums[idx] = 0;
+                idx--;
+            }
+            if(idx == 0){
+                nums[idx]++;
                 break;
             }
         }
@@ -44,13 +40,6 @@ public class Main {
             }
         }
         return true;                            // 모든 수가 1이상 n이하이면서 중복되는 수가 없으면, 1부터 n까지 한번씩만 등장한다는 뜻임.
-    }
-
-    public static int factorial(int x){
-        if(x==1)
-            return 1;
-        
-        return factorial(x-1) * x;
     }
 
     public static boolean sumAns(int[] arr){
@@ -72,8 +61,8 @@ public class Main {
         for(int i = 0 ; i < n ; i++)
             nums[i] = i+1;                                  // 1부터 n까지의 수를 사전순으로 했을 때 가장 앞에 있는 값
         
-        for(int seq = 1 ; seq <= factorial(n) ; seq++){     //최대 가짓수는 factorial(n)임.
-            if(sumAns(nums)){
+        while(true){
+            if(isRightArray(nums) && sumAns(nums)){
                 for(int i = 0 ; i < n ; i++){
                     System.out.print(nums[i]+" ");
                 }
