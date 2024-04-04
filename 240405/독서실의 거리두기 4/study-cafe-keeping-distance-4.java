@@ -32,8 +32,8 @@ public class Main {
             seats[i] = seat.charAt(i)-'0'; // 정수 배열로 넣어주기
 
         for(int i = 0 ; i < n ; i++){      // 첫 번째 사람이 앉을 위치
-            for(int j = 0 ; j < n ; j++){
-                if(seats[i] == 1 || seats[j] == 1)
+            for(int j = 0 ; j < n ; j++){   // 두 번째 사람이 앉을 위치
+                if(i==j || seats[i] == 1 || seats[j] == 1)
                     continue;
                 maxDist = Math.max(maxDist, nearest(i, j));
             }
