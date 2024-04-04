@@ -22,7 +22,7 @@ public class Main {
                 idx--;
             }
             if(idx == 0){
-                nums[idx]++;
+                nums[0]++;
                 break;
             }
         }
