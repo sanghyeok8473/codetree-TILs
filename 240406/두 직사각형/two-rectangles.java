@@ -12,14 +12,14 @@ public class Main {
         int[] a = new int[3];
         int[] b = new int[3];
         
-        for(int i = 1 ; i <= 2 ; i++)
+        for(int i = 1 ; i <= 2 ; i++){
             x[i] = sc.nextInt();
-        for(int i = 1 ; i <= 2 ; i++)
             y[i] = sc.nextInt();
-        for(int i = 1 ; i <= 2 ; i++)
+        }
+        for(int i = 1 ; i <= 2 ; i++){
             a[i] = sc.nextInt();
-        for(int i = 1 ; i <= 2 ; i++)
             b[i] = sc.nextInt();
+        }
         
         if(x[2] < a[1] || a[2] < x[1] || y[2] < b[1] || b[2] < y[1])
             System.out.print("nonoverlapping");
