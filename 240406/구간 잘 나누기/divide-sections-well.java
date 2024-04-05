@@ -34,13 +34,13 @@ public class Main {
                 for(int j = prev_i ; j < i+1 ; j++){
                     nowSum += nums[j];
                 }
-                if(lim < nowSum){
+                if(lim < nowSum){                   // 마지막 구간끼리의 합은 lim을 넘으면 안됨.
                     partition += 1;
                     prev_i = i;     // 파티션이 나뉘었고, 시작 idx를 파티션 직후로 설정
                 }
             }
             if(partition == m-1){
-                System.out.print(lim);
+                System.out.print(Math.max(lim, max));
                 break;
             }
         }
