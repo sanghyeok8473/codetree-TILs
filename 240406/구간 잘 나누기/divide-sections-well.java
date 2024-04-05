@@ -24,25 +24,25 @@ public class Main {
             System.exit(0);
         }
 
-        // max부터 전체의 총합까지 i를 증가시키면서, 현재 i값이 최대값이 되게 나눌 수 있는지를 계산해서, 이게 가능하면 break후 출력?
-        // div(n / m)을 구해놓고,  div만큼의 범위 값이 최소라 가정, 이게 가능한지를 확인?
-        max = 0;
-        for(int lim = 1 ; lim <= 100 * 100 + 1 ; lim++){ // 최대값들의 최소값을 미리 정하고 시작
-            int prev_i = 0, partition = 0;
-            for(int i = 0 ; i < n ; i++){               // 파티션을 나눌때의 인덱스값
+        // 답을 가정해보고 성립하는지 확인
+
+        for(int lim = max ; lim <= 10000 ; lim++){ // 구간 합들의 최댓값을 미리 정하고 시작(구간의 최대값은 적어도 배열의 최대값 이상임)
+            int part = 0, idx = 0;
+            for(int i = 0 ; i < n ; i++){     // 구간을 나눴을 때의 구간의 끝이 될 수 있는 값
                 int nowSum = 0;
-                for(int j = prev_i ; j < i+1 ; j++){
+                for(int j = idx ; j < i+1 ; j++){
                     nowSum += nums[j];
                 }
-                if(lim < nowSum){                   // 마지막 구간끼리의 합은 lim을 넘으면 안됨.
-                    partition += 1;
-                    prev_i = i;     // 파티션이 나뉘었고, 시작 idx를 파티션 직후로 설정
+                if(nowSum > lim){ // 
+                    part++;             // 구간을 하나 나눔.
+                    idx = i;            // 다음 구간의 시작점은 현재 구간의 합이 넘치게 된 끝점.
                 }
             }
-            if(partition == m-1){
-                System.out.print(Math.max(lim, max));
+            if(part == m - 1){          // 구간 합들의 최댓값이 lim일 때, 정확히m개의 구간으로 나뉘었음.
+                System.out.print(lim);   // 그러나, 구간의 크기가 1인(숫자 한개)데 현재 lim보다 클 수 있음.
                 break;
             }
+
         }
 
     }
