@@ -17,11 +17,8 @@ public class Main {
             u[i] = sc.nextInt();
         }
 
-        if(u[p] == 0){                      // 모든 사람 출력
-            for(int i = 0 ; i < n ; i++){  
-                char nowC = (char)(i+65);
-                System.out.print(nowC+" ");
-            }
+        if(u[p] == 0){                      // 0이라는 건 모든 사람이 다 읽었다는 뜻임. 따라서 0출력
+            System.out.print("");
             System.exit(0);
         }
         
