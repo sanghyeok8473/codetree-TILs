@@ -22,10 +22,29 @@ public class Main {
             System.exit(0);
         }
         
-        for(int i = p ; i <= m ; i++){  // 확실하게 메세지를 읽을사람을 확인하는 코드
+        for(int i = p ; i <= m ; i++){  // 확실하게 메세지를 읽을사람을 확인하는 코드(p번째 포함 확실하게 등장하는 사람)
             int nowUser = c[i] - 'A';
             checkedUser[nowUser] = 1;
         }
+
+        if(p!= 1 && u[p] == u[p-1]){             // 입력받은 질문과 직전 질문이 같으면 반드시 어디서부터 이어져 온건지 확인
+            int idx = 0;
+            for(int i = p-2 ; i >= 1; i--){
+                if(u[i] != u[p]){
+                    idx = i+1;
+                    break;
+                }
+                if(i == 1)
+                    idx = 1;
+            }
+            for(int i = idx ; i <= p-1 ; i++){
+                int nowUser = c[i] - 'A';
+                checkedUser[nowUser] = 1;       // 1은 반드시 들어가야 한다는 뜻.
+            }
+        }
+
+
+
         for(int i = p ; i <= m ; i++){      // 만약 직전 메시지를 읽지 않은 사람과 현재 메시지를 읽지 않은 사람이 같으면,
             int nowUser = c[i-1] - 'A';     // 직전에 메시지를 보낸사람이 나가지 않아야만 가능한 상황임.
             if(u[i] == u[i-1]){             // 왜냐하면 직전에 보낸 사람의 조건과 직후에 보낸 사람의 조건이 같기때문.
