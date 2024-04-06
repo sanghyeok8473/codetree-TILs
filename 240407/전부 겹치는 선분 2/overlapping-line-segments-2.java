@@ -36,6 +36,10 @@ public class Main {
                 System.out.print("Yes");
                 break;
             }
+            if(!exist && i==100){
+                System.out.print("No");
+                break;
+            }
         }
         
 
