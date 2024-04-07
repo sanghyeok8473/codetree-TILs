@@ -44,16 +44,16 @@ public class Main {
                 System.out.print(cnt+1);
                 break;
             }
-            if(one == 3 || two == 3){
+            if(one == 3 || two == 3 || one == 1 || two == 1){
                 System.out.print(cnt+2);
                 break;
             }
-            if(one == 1 || one > two){          // one과 two가 둘다 1일순 없음(둘다 1이면 checkEnd에서 끝났을 것.)
+            if(one > two){          // one과 two가 둘다 1일순 없음(둘다 1이면 checkEnd에서 끝났을 것.)
                 men[0] = men[1] + 2;            // 또한 two는 2, 3도 아님( 2나 3이면 위에서 끝났을 것.) 즉 4이상임.
                 cnt++;
                 continue;
             }
-            else if(two == 1 || two >= one){
+            else if(two >= one){
                 men[2] = men[0] + 2;
                 cnt++;
                 continue;
