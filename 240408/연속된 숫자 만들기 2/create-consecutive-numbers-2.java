@@ -24,6 +24,7 @@ public class Main {
         for(int i = 0 ; i < 3 ; i++)
             men[i] = sc.nextInt();
 
+        Arrays.sort(men);
         if(checkEnd()){
             System.out.print(cnt);
             System.exit(0);
@@ -32,30 +33,30 @@ public class Main {
         while(true){
             Arrays.sort(men);
 
-            if(checkEnd()){
-                System.out.print(cnt);
-                break;
-            }
-
             int one = men[1] - men[0];
             int two = men[2] - men[1];
 
-            if(one == 3 || two == 3){
-                System.out.print(cnt+2);
+            if(checkEnd()){
+                System.out.print(cnt);
                 break;
             }
             if(one == 2 || two == 2){
                 System.out.print(cnt+1);
                 break;
             }
-
+            if(one == 3 || two == 3){
+                System.out.print(cnt+2);
+                break;
+            }
             if(one > two){
                 men[0] = men[2] - 1;
                 cnt++;
+                continue;
             }
             else{
                 men[2] = men[1] - 1;
                 cnt++;
+                continue;
             }
         }
         
