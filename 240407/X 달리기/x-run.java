@@ -2,36 +2,53 @@ import java.util.Scanner;
 import java.util.Arrays;
 
 public class Main {
-    public static int x, nowT, nowV, nowX, minT = Integer.MAX_VALUE;
+    public static int x, nowT, nowV = 1, nowX = 0, minT = Integer.MAX_VALUE;
+
+    public static int returnMinX(int v){            //최소 이동거리를 뽑아줍니다.(5+4+3+2+1 의 결과를 리턴합니다.)
+        if(v == 1)
+            return 1;
+        
+        return v + returnMinX(v-1);
+    }
+
+    public static int returnMaxV(int x){
+        for(int i = 1; i <= x ; i++){
+            if(maxVX(i) <= x && maxVX(i+1) > x)
+                return i;
+        }
+
+        return 0;
+    }
+
+    public static int maxVX(int x){
+        int returnX = 0;
+        for(int i = 1; i <= x ; i++){
+            returnX += i;
+        }
+        returnX *= 2;
+        returnX -= x;
+        return returnX;
+    }
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         
         x = sc.nextInt();
-        // 줄이기 시작하는 지점을 미리 지정해놓고 for문 돌기?
-        
-        for(int highT = 1 ; highT <= x ; highT++ ){     // 줄이기 시작하는 지점을 미리 지정
-            nowV = 0; nowX = 0; nowT = 0;
-            boolean finishOne = false;
-            for(int t = 1 ; t <= highT ; t++){
-                nowV++;
-                nowX += nowV;
-                nowT ++;
-            }
-            for(int t = highT ; t <= x ; t++){
-                if(nowV != 1)
-                    nowV--;
-                nowX += nowV;
-                nowT ++;
-                if(nowX == x && nowV == 1){
-                    finishOne = true;
-                    break;
-                }
-            }
-            if(finishOne)
-                minT = Math.min(nowT, minT);
-        }
-        System.out.print(minT);
 
+        for(int i = 1 ; i <= returnMaxV(x) ; i++){
+            nowV = i;
+            nowX += nowV;
+            nowT++;
+        }
+        while(true){
+            if(returnMinX(nowV) > (x - nowX) && nowV > 1)
+                nowV--;
+            nowX += nowV;
+            nowT++;
+            if(nowX == x){
+                System.out.print(nowT);
+                break;
+            }
+        }
     }
 }
