@@ -48,13 +48,23 @@ public class Main {
                 System.out.print(cnt+2);
                 break;
             }
+            if(one == 1){
+                men[0] = (men[2] + men[1])/2;
+                cnt++;
+                continue;
+            }
+            if(two == 1){
+                men[2] = (men[0] + men[1])/2;
+                cnt++;
+                continue;
+            }
             if(one > two){
-                men[0] = men[2] - 1;
+                men[0] = (men[2] + men[1])/2;
                 cnt++;
                 continue;
             }
             else{
-                men[2] = men[1] - 1;
+                men[2] = (men[0] + men[1])/2;
                 cnt++;
                 continue;
             }
