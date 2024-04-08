@@ -35,7 +35,7 @@ public class Main {
         if(one > two){                      // one과 two가 둘다 1일순 없음(둘다 1이면 checkEnd에서 끝났을 것.)
             System.out.print(one-1);
         }
-        else{
+        else{2113
             System.out.print(two-1);
         }
     }
