@@ -41,8 +41,7 @@ public class Main {
             }
             else if(two >= one){
                 men[0] = men[2] - 1;
-                cnt++;
-                continue;
+                cnt++;s
             }
         }
         
