@@ -36,6 +36,7 @@ public class Main {
         for(int i = 0 ; i < n ; i++){
             if(arr2[i] != arr2[0]){    
                 find = arr2[i];
+                break;
             }
         }
         for(int i = 0 ; i < n ; i++){
