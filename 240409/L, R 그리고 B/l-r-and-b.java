@@ -24,7 +24,9 @@ public class Main {
                 }
             }
         }
-        if((lx == rx && rx == bx && ((ry < ly && ry > by) || (ry < by && ry > ry))) || (lx == rx && rx == bx) && ((rx < lx && rx > bx) || (rx < bx && rx > rx)))
+        if((lx == rx && rx == bx) && ((ry < ly && ry > by) || (ry < by && ry > ly)))
+            result = Math.abs(lx-bx)+Math.abs(ly-by)-1 + 2;
+        else if((ly == ry && ry == by) && ((rx < lx && rx > bx) || (rx < bx && rx > lx)))
             result = Math.abs(lx-bx)+Math.abs(ly-by)-1 + 2;
         else
             result = Math.abs(lx-bx)+Math.abs(ly-by)-1;
