@@ -4,9 +4,9 @@ import java.util.Arrays;
 public class Main {
     public static int n, max = -1000000000;
 
-    public static int compareMinus(int[] arr){
-        int minusTwo = 0, allPlus = 0;
-        minusTwo = arr[0] * arr[1] * arr[n-1];
+    public static int compareMinus(int[] arr){      // 양수가 하나라도 있는 배열이 정렬되어 들어옴.
+        int minusTwo = 0, allPlus = 0;          // 따라서 맨 왼쪽 두개와 맨 오른쪽 하나를 곱한 값과
+        minusTwo = arr[0] * arr[1] * arr[n-1];  // 맨 오른쪽 3개의 곱을 비교해보면 됨.
         allPlus = arr[n-1] * arr[n-2] * arr[n-3];
 
         return Math.max(minusTwo, allPlus);
