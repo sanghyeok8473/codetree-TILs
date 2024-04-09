@@ -5,16 +5,22 @@ public class Main {
     public static int n, cnt = 0;
 
     public static boolean checkManySecond(int[] arr){
+        int find = 0, cnt = 0;
         for(int i = 0 ; i < n ; i++){
-            if(arr[i] != arr[0]){     // 두 번째로 작은 값이 시작되는 위치를 찾음.
-                if(i == n-1)
-                    return false;       // 정렬 후 1 1 1 1 4 이면 두 번째 값은 하나인 경우임.
-                if(arr[i] == arr[i+1]){     // sort를 했으므로 두번째 값 다음값도 두번째 값이면 두개이상 있는거임.
-                    return true;
-                }
+            if(arr[i] != arr[0]){    
+                find = arr[i];
+                break;
             }
         }
-        return false;
+        for(int i = 0 ; i < n ; i++){
+            if(find == arr[i]){ 
+                cnt++;
+            }
+        }
+        if(cnt == 1)
+            return false;
+        else
+            return true;
 
     }
 
@@ -64,7 +70,7 @@ public class Main {
 
         Arrays.sort(nums2);
         
-        if(checkAllSame(nums2) || checkManySecond(nums2))
+        if(checkAllSame(nums) || checkManySecond(nums2))
             System.out.print(-1);
         else
             System.out.print(returnSecond(nums));
