@@ -63,7 +63,7 @@ public class Main {
                             System.exit(0);
                         }
                         else{
-                            System.out.print(i);
+                            System.out.print(i+1);
                             System.exit(0);
                         }
                     }  
