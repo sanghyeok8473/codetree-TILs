@@ -24,8 +24,12 @@ public class Main {
                 cnt++;
         }
             
-        if(m==0 || m >= n/2){
+        if(m==0){
             System.out.print(cnt);
+            System.exit(0);
+        }
+        if(m>=n/2){
+            System.out.print(1);
             System.exit(0);
         }
 
