@@ -39,10 +39,18 @@ public class Main {
             System.exit(0);
         }
 
-
+        // 범위안이 전부 0이면 넘어가면서 설치해야됨.
         for(int i = 1 ; i <= (n/(m+2)) ; i++){  // 공유기의 수를 미리 정의 -> 설치 후 성립하면 바로 break
             int nowCnt = 0, install = 0;
             for(int j = m ; j < n-m ; j+=(2*m+1)){
+                boolean nowOnlyZero = true;
+                for(int k = j-m ; k <= j+m ; k++){
+                    if(nums[k] == 1)
+                        nowOnlyZero = false;
+                }
+                if(nowOnlyZero){
+                    continue;
+                }
                 install++;
                 for(int k = j - m ; k <= j + m ; k++){
                     if(nums[k] == 1)
@@ -55,7 +63,7 @@ public class Main {
                             System.exit(0);
                         }
                         else{
-                            System.out.print(i+1);
+                            System.out.print(i);
                             System.exit(0);
                         }
                     }  
