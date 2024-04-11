@@ -42,18 +42,24 @@ public class Main {
 
         for(int i = 1 ; i <= (n/(m+2)) ; i++){  // 공유기의 수를 미리 정의 -> 설치 후 성립하면 바로 break
             int nowCnt = 0, install = 0;
-            for(int j = m ; j < n ; j+=(2*m+1)){
+            for(int j = m ; j < n-m ; j+=(2*m+1)){
                 install++;
                 for(int k = j - m ; k <= j + m ; k++){
                     if(nums[k] == 1)
                         nowCnt++;
+                }  
+                if(install==i){
+                    if(j+3*m+1 >= n-1){      // 1개로 커버되는 범위만큼 남았을 때 
+                        if(nowCnt == cnt){
+                            System.out.print(i);
+                            System.exit(0);
+                        }
+                        else{
+                            System.out.print(i+1);
+                            System.exit(0);
+                        }
+                    }  
                 }
-                if(install==i)
-                    break;
-            }
-            if(nowCnt == cnt){
-                System.out.print(i);
-                break;
             }
         }
     }
