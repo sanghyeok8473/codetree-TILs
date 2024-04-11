@@ -24,7 +24,11 @@ public class Main {
                 cnt++;
         }
             
-        
+        if(m==0){
+            System.out.print(cnt);
+            System.exit(0);
+        }
+
 
         for(int i = 1 ; i <= (n/(m+2)) ; i++){  // 공유기의 수를 미리 정의 -> 설치 후 성립하면 바로 break
             int nowCnt = 0, install = 0;
