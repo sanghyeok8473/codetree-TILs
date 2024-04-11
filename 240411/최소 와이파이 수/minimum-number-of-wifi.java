@@ -24,7 +24,7 @@ public class Main {
                 cnt++;
         }
             
-        if(m==0){
+        if(m==0 || m >= n/2){
             System.out.print(cnt);
             System.exit(0);
         }
