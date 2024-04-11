@@ -18,12 +18,18 @@ public class Main {
         n = sc.nextInt(); m = sc.nextInt();
         int[] nums = new int[n];
 
+        boolean ghost = true;
         for(int i = 0 ; i < n ; i++){
             nums[i] = sc.nextInt();
-            if(nums[i]==1)
+            if(nums[i]==1){
                 cnt++;
+                ghost = false;
+            }
         }
-            
+        if(ghost){
+            System.out.print(0);
+            System.exit(0);
+        }
         if(m==0){
             System.out.print(cnt);
             System.exit(0);
