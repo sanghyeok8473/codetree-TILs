@@ -67,48 +67,5 @@ public class Main {
         // 구간을 옮기고 시작하면 됨.
 
         // 범위안이 전부 0이면 넘어가면서 설치해야됨.
-        /*for(int i = 1 ; i <= (n/(m+2)) ; i++){  // 공유기의 수를 미리 정의 -> 설치 후 성립하면 바로 break
-            int nowCnt = 0, install = 0;
-            for(int j = m ; j < n-m ; j+=(2*m+1)){
-                boolean nowOnlyZero = true;
-                for(int k = j-m ; k <= j+m ; k++){
-                    if(nums[k] == 1)
-                        nowOnlyZero = false;
-                }
-                if(nowOnlyZero){                    // 현재 범위에 0밖에 없으면, 굳이 설치할 필요가 없음.
-                    System.out.println(j);
-                    continue;
-                }
-                install++;
-                for(int k = j - m ; k <= j + m ; k++){
-                    if(nums[k] == 1)
-                        nowCnt++;
-                }  
-                if(install==i){
-                    if(j+m < n-1 && j+3*m+1 >= n-1){      // 1개로 커버되는 범위만큼 남았을 때 
-                        if(nowCnt == cnt){
-                            System.exit(0);
-                        }
-                        else{
-                            boolean nextOnlyZero = true;
-                            for(int k = j+m+1 ; k < n ; k++){
-                                if(nums[k] == 1)
-                                    nextOnlyZero = false;
-                            }
-                            if(nextOnlyZero){
-                                System.out.print(i);
-                                System.exit(0);
-                            }
-                            else{
-                                System.out.print(i+1);
-                                System.exit(0);
-                            }
-                        }
-                    }
-                    else
-                        break;  
-                }
-            }
-        }*/
     }
 }
