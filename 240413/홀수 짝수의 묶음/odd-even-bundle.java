@@ -30,13 +30,17 @@ public class Main {
         //now는 현재 어떤 묶음이 와야 하는지 명시
         while(true){
             if(now == 1){           // 이번 차례가 짝수일때
-                if(evenCnt > 0){    // 남은 짝수가 있으면
+                if(evenCnt > 0 && oddCnt > 0){    // 남은 짝수가 있으면(대신 홀수도 있어야함. 홀수는 홀수로만 만들 수 있기 때문)
                     total++;
                     evenCnt--;
                     now = 0;
                     continue;
                 }
-                else{               // 남은 짝수가 없을때
+                else if(evenCnt > 0 && oddCnt == 0){    // 짝수만 남아있으면, 여기서 끝내야함.
+                    total++;
+                    break;
+                }
+                else{               // 남은 짝수가 없고, 홀수만 남아 있을 때
                     if(oddCnt > 5){
                         total++;
                         oddCnt-=2;
@@ -63,6 +67,8 @@ public class Main {
                     oddCnt--;
                     now = 1;
                 }
+                else
+                    break;
             }
         }
         System.out.print(total);
