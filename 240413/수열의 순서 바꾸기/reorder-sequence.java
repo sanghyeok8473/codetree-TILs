@@ -2,7 +2,7 @@ import java.util.Scanner;
 import java.util.Arrays;
 
 public class Main {
-    public static int n, m, cnt = 0, now, nowChk;
+    public static int n, m, cnt = 0, now, nowChk, nowChk2;
     public static int[] nums = new int[100];
 
     public static boolean check(int[] arr){
@@ -38,13 +38,30 @@ public class Main {
                 break;
             }
             now = nums[0];
-            if(now < nums[n-1]){
-                for(int i = 0 ; i < n-2 ; i ++){
-                    nums[i] = nums[i+1];
+            // now가 끝에있는 숫자보다 작으면 본인의 숫자+1의 왼쪽으로 (본인숫자+1의 idx가 1이면 본인숫자+2의 왼쪽으로)
+            if(now < nums[n-1]){     
+                for(int i = 0 ; i < n ; i ++){
+                    if(nums[i] == now+1)
+                        nowChk = i;
+                    if(nums[i] == now+2)
+                        nowChk2 = i;
                 }
-                nums[n-2] = now;
-                cnt++;
+                if(nowChk==1){
+                    for(int i = 0 ; i < nowChk2-1 ; i ++){
+                        nums[i] = nums[i+1];
+                    }
+                    nums[nowChk2-1] = now;
+                    cnt++;
+                }   
+                else{
+                    for(int i = 0 ; i < nowChk-1 ; i ++){
+                        nums[i] = nums[i+1];
+                    }
+                    nums[nowChk-1] = now;
+                    cnt++;
+                }
             }
+            // now가 끝에있는 숫자보다 크면 끝으로 이동
             else{
                 for(int i = 0 ; i < n-1 ; i ++){
                     nums[i] = nums[i+1];
