@@ -32,43 +32,15 @@ public class Main {
             nums[i] = sc.nextInt();
         
 
-        while(true){
-            if(check(nums)){
-                System.out.print(cnt);
-                break;
-            }
-            now = nums[0];
-            // now가 끝에있는 숫자보다 작으면 본인의 숫자+1의 왼쪽으로 (본인숫자+1의 idx가 1이면 본인숫자+2의 왼쪽으로)
-            if(now < nums[n-1]){     
-                for(int i = 0 ; i < n ; i ++){
-                    if(nums[i] == now+1)
-                        nowChk = i;
-                    if(nums[i] == now+2)
-                        nowChk2 = i;
-                }
-                if(nowChk==1){
-                    for(int i = 0 ; i < nowChk2-1 ; i ++){
-                        nums[i] = nums[i+1];
-                    }
-                    nums[nowChk2-1] = now;
-                    cnt++;
-                }   
-                else{
-                    for(int i = 0 ; i < nowChk-1 ; i ++){
-                        nums[i] = nums[i+1];
-                    }
-                    nums[nowChk-1] = now;
-                    cnt++;
+        for(int i = 0; i < n; i++) {
+            boolean flag = false;
+            for(int j = i; j < n - 1; j++) {
+                if(nums[j] > nums[j + 1]) {
+                    flag = true;
                 }
             }
-            // now가 끝에있는 숫자보다 크면 끝으로 이동
-            else{
-                for(int i = 0 ; i < n-1 ; i ++){
-                    nums[i] = nums[i+1];
-                }
-                nums[n-1] = now;
-                cnt++;
-            }
+            if(flag) cnt++;
         }
+        System.out.print(cnt);
     }
 }
