@@ -9,7 +9,7 @@ public class Main {
     }
 
     public static int returnNow(int x, int k){   // 특정 자릿수 반환함수
-        int cnt = 0, returnNum = 0;
+        int cnt = 0;
 
         while(true){
             if(cnt == k)
