@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class Main {
     public static int n = 0;
-    public static int[] nums = new int[100000];
+    public static int[] nums = new int[100000], merged_arr = new int[100000];
 
     public static void merge_sort(int[] arr, int low, int high){
         if(low < high){
@@ -14,7 +14,6 @@ public class Main {
     }
 
     public static void merge(int[] arr, int low, int mid, int high){
-        int[] merged_arr = new int[n];
         int k = low, i = low, j = mid+1;
 
         while(i <= mid && j <= high){
