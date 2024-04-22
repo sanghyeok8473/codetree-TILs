@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.Arrays;
 
 public class Main {
     public static int returnK(int x){   // 자릿수 반환함수
@@ -20,7 +21,7 @@ public class Main {
         }
         k = returnK(max);
 
-        for(int pos = 0 ; pos < k ; pos++){    // 일의 자리부터 비교
+        /*for(int pos = 0 ; pos < k ; pos++){    // 일의 자리부터 비교
             int[][] new_arr = new int[10][n];                // 특정 자리수가 모두 같을때 최대 n개가 들어감.
             int nowPos = (int)Math.pow(10,pos);
             for(int i = 0 ; i < n ; i++){
@@ -35,18 +36,18 @@ public class Main {
             int idx = 0;
             for(int i = 0 ; i < 10 ; i++){
                 for(int j = 0 ; j < n ; j++){
-                    if(new_arr[i][j] != 0){
+                    if(new_arr[i][j] == 0)
+                        break;
+                    else{
                         arr[idx] = new_arr[i][j];
                         idx++;
                     }
-                    else
-                        break;
                 }
             }
-        }
+        }*/
 
 
-
+        Arrays.sort(arr);
         for(int i = 0 ; i < n ; i++)
             System.out.print(arr[i]+" ");
     }
