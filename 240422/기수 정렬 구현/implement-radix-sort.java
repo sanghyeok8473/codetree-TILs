@@ -2,13 +2,6 @@ import java.util.Scanner;
 import java.util.ArrayList;
 
 public class Main {
-    public static int returnK(int x){   // 자릿수 반환함수
-        if(x<10)
-            return 1;
-    
-        return 1+returnK(x/10);
-    }
-
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
