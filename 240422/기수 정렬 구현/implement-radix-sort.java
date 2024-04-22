@@ -24,7 +24,7 @@ public class Main {
             int[][] new_arr = new int[10][n];                // 특정 자리수가 모두 같을때 최대 n개가 들어감.
             int nowPos = (int)Math.pow(10,pos);
             for(int i = 0 ; i < n ; i++){
-                int nowNum = (arr[i] / nowPos )%10;
+                int nowNum = (arr[i] / nowPos )%10;          // 현재 위치의 숫자 추출
                 for(int j = 0 ; j < n ; j++){
                     if(new_arr[nowNum][j] == 0){
                         new_arr[nowNum][j] = arr[i];
@@ -39,6 +39,8 @@ public class Main {
                         arr[idx] = new_arr[i][j];
                         idx++;
                     }
+                    else
+                        break;
                 }
             }
         }
