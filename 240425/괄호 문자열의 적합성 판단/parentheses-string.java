@@ -15,7 +15,7 @@ public class Main {
             else{
                 if(s.empty()){
                     System.out.print("No");
-                    break;
+                    System.exit(0);
                 }
                 s.pop();
             }
