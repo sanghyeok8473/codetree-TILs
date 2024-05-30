@@ -17,7 +17,10 @@ public class Main {
             }
         }
         // 입력 파트
-
+        if(m==1){
+            System.out.print(n*2);
+            System.exit(0);
+        }
         for(int i = 0 ; i < n ; i++){
             boolean check = false;
             for(int j = 0 ; j < n-1 ; j++){
