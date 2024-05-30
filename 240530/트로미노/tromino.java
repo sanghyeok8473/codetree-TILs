@@ -22,17 +22,17 @@ public class Main {
 
         for(int i = 0 ; i <= n-2 ; i++){
             for(int j = 0 ; j <= m-2 ; j++){
-                max = Math.max(max, returnMax1(i, j));
+                max = Math.max(max, returnMax(i, j));
             }
         }
 
-        for(int i = 0 ; i < n ; i++){                   // 1*3모양
+        for(int i = 0 ; i < n ; i++){                   // 1*3 모양
             for(int j = 0 ; j <= m-3 ; j++){
                 max = Math.max(max, (board[i][j] + board[i][j+1] + board[i][j+2]));
             }
         }
 
-        for(int j = 0 ; j < m ; j++){
+        for(int j = 0 ; j < m ; j++){                   // 3*1 모양
             for(int i = 0 ; i <= n-3 ; i++){
                 max = Math.max(max, (board[i][j] + board[i+1][j] + board[i+2][j]));
             }
@@ -41,7 +41,7 @@ public class Main {
         System.out.print(max);
     }
 
-    public static int returnMax1 (int x, int y){ // 첫 번째 블록에서의 최대값 반환
+    public static int returnMax (int x, int y){ // 첫 번째 블록에서의 최대값 반환
         int maxSum = (board[x][y] + board[x+1][y] + board[x][y+1] + board[x+1][y+1]);
         int answer = 0;
         for(int i = x ; i < x+2 ; i++){
