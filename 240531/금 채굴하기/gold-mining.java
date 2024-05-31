@@ -48,8 +48,6 @@ public class Main {
                 }
             }
             if(nowCnt*m >= cost){
-                if(nowCnt ==  3)
-                    System.out.println(x+" "+y+" "+k);
                 nowMax = Math.max(nowMax, nowCnt);
             }
                 
