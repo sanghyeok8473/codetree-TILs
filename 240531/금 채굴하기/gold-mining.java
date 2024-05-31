@@ -39,16 +39,20 @@ public class Main {
             int nowCnt = 0;                             // 현재 범위에서의 금의 개수
             for(int i = x-k ; i <= x+k ; i++){
                 for(int j = y-k ; j <= y+k ; j++){
-                    if((i < 0 || i >= n) || (j < 0 || j >= n)) // 범위를 벗어난 경우에는 금이 절대 없으므로 볼 필요도 없음.
+                    if((i < 0 || i >= n) || (j < 0 || j >= n)) // 범위를 벗어난 경우에는 금이 절대 없으므로 볼 필요도 없음, index범위 밖 오류 방지.
                         continue;
-                    if(Math.abs((i+j)-(x+y)) <= k){
+                    if(Math.abs((i-x))+Math.abs((j-y)) <= k){
                         if(board[i][j] == 1)
                             nowCnt++;
                     }
                 }
             }
-            if(nowCnt*m >= cost)
+            if(nowCnt*m >= cost){
+                if(nowCnt ==  3)
+                    System.out.println(x+" "+y+" "+k);
                 nowMax = Math.max(nowMax, nowCnt);
+            }
+                
         }
         return nowMax;
     }
