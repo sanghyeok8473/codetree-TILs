@@ -34,7 +34,7 @@ public class Main {
 
     public static int returnMax (int x, int y){ 
         int nowMax = 0;
-        for(int k = 0 ; k <= n ; k++){
+        for(int k = 0 ; k <= 2*(n-1) ; k++){
             int cost = (k * k) + ((k + 1) * (k + 1));   // 현재 범위에서 채굴 비용
             int nowCnt = 0;                             // 현재 범위에서의 금의 개수
             for(int i = x-k ; i <= x+k ; i++){
