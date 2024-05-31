@@ -5,6 +5,9 @@ public class Main {
     public static int[][] board = new int [20][20];
     public static int totalMax = 0, n = 0;
 
+    public static int[] dx = {-1, -1, +1, +1};
+    public static int[] dy = {+1, -1, -1, +1};
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
@@ -26,59 +29,68 @@ public class Main {
     }
 
     public static int returnSum (int i, int j){     // 시작점이 x,y인 좌표를 받으면 최대의 기울어진 직사각형을 만들어서 그 변의 합을 반환
-        int sum = 0;
+        int idx = 0, sum = 0;
         int x = i, y = j;
 
-        boolean end = false;     // 1번 방향
-                
-
-        while(!end){
+        while(true){
             sum += board[x][y];
-            x--; y++;
-            
-            if(x == 0 || y == n){
-                x++; y--;
-                x--; y--;
-                end = true;
-            }
-        }
-
-        end = false;                    // 2번 방향
-        while(!end){
-            sum += board[x][y];
-            x--; y--;
-            
-            if(x <= 0 || y <= 0){
-                x++; y++;
-                x++; y--;
-                end = true;
-            }
-        }
-
-        end = false;                    // 3번 방향
-        while(!end){
-            sum += board[x][y];
-            if(x >= n-1 || y <= 0){
-                x++; y++;
+            if(returnOut(x, y, 1)){
+                idx++; 
+                x += dx[idx]; y += dy[idx];
                 break;
             }
-            x++; y--;
+            x += dx[idx]; y += dy[idx];
         }
 
-        end = false;                    // 4번 방향
-        while(!end){
-            if((x == i && y == j) || (x >= n || y >= n))
-                break;
+        while(true){
             sum += board[x][y];
-            if(x+1 == i && y+1 == j){
+            if(returnOut(x, y, 2)){
+                idx++; 
+                x += dx[idx]; y += dy[idx];
                 break;
             }
-            x++; y++;
+            x += dx[idx]; y += dy[idx];
         }
 
-        return sum;
+        while(true){
+            sum += board[x][y];
+            if(returnOut(x, y, 3)){
+                idx++; 
+                x += dx[idx]; y += dy[idx];
+                break;
+            }
+            x += dx[idx]; y += dy[idx];
+        }
+
+        while(true){
+            if(x == i && y == j)
+                break;
+            if (x < 0 || x >= n || y < 0 || y >= n) { // 배열 범위를 벗어나지 않도록 체크
+                return 0; // 유효하지 않은 경우 0을 반환
+            }
+            sum += board[x][y];
+            x += dx[idx]; y += dy[idx];
+        }
+
+       return sum;
+    }
+
+    public static boolean returnOut(int x, int y, int k){
+        switch(k){
+            case 1:
+                if(x == 1 || y == n-1)
+                    return true;
+                break;
+            case 2:
+                if(x == 0 || y == 0)
+                    return true;
+                break;
+            case 3:
+                if(x == n-1 || y == 0)
+                    return true;
+                break;
+        }
+
+        return false;
     }
 }
-
-// 어차피 최대가 되어야 하기 때문에, 기준을 잡고, 범위는 보드를 벗어날 때까지로 설정.
-// 최소 1칸씩은 시작되는 범위는 i=2, j=1임.
