@@ -34,14 +34,14 @@ public class Main {
 
     public static int returnMax (int x, int y){ 
         int nowMax = 0;
-        for(int k = 0 ; k <= n/2+2 ; k++){
+        for(int k = 0 ; k <= n ; k++){
             int cost = (k * k) + ((k + 1) * (k + 1));   // 현재 범위에서 채굴 비용
             int nowCnt = 0;                             // 현재 범위에서의 금의 개수
             for(int i = x-k ; i <= x+k ; i++){
                 for(int j = y-k ; j <= y+k ; j++){
                     if((i < 0 || i >= n) || (j < 0 || j >= n)) // 범위를 벗어난 경우에는 금이 절대 없으므로 볼 필요도 없음, index범위 밖 오류 방지.
                         continue;
-                    if(Math.abs((i-x))+Math.abs((j-y)) <= k){
+                    if((Math.abs((i-x))+Math.abs((j-y))) <= k){
                         if(board[i][j] == 1)
                             nowCnt++;
                     }
