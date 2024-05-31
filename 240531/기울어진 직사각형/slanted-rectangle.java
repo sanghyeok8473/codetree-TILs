@@ -12,6 +12,7 @@ public class Main {
         Scanner sc = new Scanner(System.in);
 
         n = sc.nextInt();
+        board = new int[n][n];
 
         for(int i = 0 ; i < n ; i++){
             for(int j = 0 ; j < n ; j++){
@@ -65,7 +66,7 @@ public class Main {
         while(true){
             if(x == i && y == j)
                 break;
-            if (x < 0 || x >= n || y < 0 || y >= n) { 
+            if (x < 0 || x >= n || y < 0 || y >= n) {
                 return 0;
             }
             sum += board[x][y];
