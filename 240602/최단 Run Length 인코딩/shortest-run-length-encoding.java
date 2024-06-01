@@ -12,7 +12,7 @@ public class Main {
 
         char[] s = str.toCharArray();
         
-        for(int cnt = 0 ; cnt < n-1 ; cnt++){
+        for(int cnt = 0 ; cnt < n ; cnt++){
             char temp = s[n-1];
             for(int i = n-1 ; i >= 1 ; i--){
                 s[i] = s[i-1];
