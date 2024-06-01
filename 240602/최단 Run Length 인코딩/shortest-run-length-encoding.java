@@ -13,8 +13,14 @@ public class Main {
         char[] s = str.toCharArray();
 
         if(allSame(s)){
-            System.out.print(3);
-            System.exit(0);
+            if(n==10){
+                System.out.print(3);
+                System.exit(0);
+            }
+            else{
+                System.out.print(2);
+                System.exit(0);
+            }
         }
         
         for(int cnt = 0 ; cnt < n ; cnt++){
