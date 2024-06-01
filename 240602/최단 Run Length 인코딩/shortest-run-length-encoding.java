@@ -24,14 +24,10 @@ public class Main {
     }
 
     public static int RLE(char[] s){
-        int len = 2; boolean first = false;
-        for(int i = 0 ; i < s.length-1 ; i++){
+        int len = 2;
+        for(int i = 0 ; i < n-1 ; i++){
             if(s[i] != s[i+1]){
-                if(first == false)
-                    first = true;
-                if(first == true){
-                    len += 2;
-                }
+                len += 2;
             }
         }
         return len;
