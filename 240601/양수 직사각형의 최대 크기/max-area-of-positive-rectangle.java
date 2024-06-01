@@ -11,12 +11,20 @@ public class Main {
         n = sc.nextInt();
         m = sc.nextInt();
         board = new int[n][m];
+        boolean allMinus = true;
 
         for(int i = 0 ; i < n ; i++){
             for(int j = 0 ; j < m ; j++){
                 board[i][j] = sc.nextInt();
+                if(board[i][j] > 0)
+                    allMinus = false;
             }
         }    // 입력 파트
+
+        if(allMinus){
+            System.out.print(totalMax);
+            System.exit(0);
+        }
 
         for(int i = 0 ; i < n ; i++){
             for(int j = 0 ; j < m ; j++){
