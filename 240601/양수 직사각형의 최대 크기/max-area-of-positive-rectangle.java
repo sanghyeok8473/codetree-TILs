@@ -3,7 +3,7 @@ import java.util.*;
 
 public class Main {
     public static int[][] board;
-    public static int totalMax = 0, n, m;
+    public static int totalMax = -1, n, m;
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -16,15 +16,8 @@ public class Main {
         for(int i = 0 ; i < n ; i++){
             for(int j = 0 ; j < m ; j++){
                 board[i][j] = sc.nextInt();
-                if(board[i][j] > 0)
-                    allMinus = false;
             }
         }    // 입력 파트
-
-        if(allMinus){
-            System.out.print(totalMax);
-            System.exit(0);
-        }
 
         for(int i = 0 ; i < n ; i++){
             for(int j = 0 ; j < m ; j++){
