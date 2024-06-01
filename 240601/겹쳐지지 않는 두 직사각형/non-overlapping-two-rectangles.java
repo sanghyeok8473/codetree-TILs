@@ -3,7 +3,7 @@ import java.util.*;
 
 public class Main {
     public static int[][] board;
-    public static int totalMax = 0, n, m;
+    public static int totalMax = Integer.MIN_VALUE, n, m;
 
     public static int[] dx = {-1, -1, +1, +1};
     public static int[] dy = {+1, -1, -1, +1};
@@ -76,7 +76,7 @@ public class Main {
                 sum += board[i][j];
             }
         }
-        
+
         return sum;
     }
 
