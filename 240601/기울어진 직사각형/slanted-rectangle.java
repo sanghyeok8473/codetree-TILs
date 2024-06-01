@@ -78,7 +78,7 @@ public class Main {
         }
         idx++;
 
-        for(int i = 0 ; i < len1 ; i++){
+        for(int i = 0 ; i < len2 ; i++){
             if(outRange(x,y))
                 return 0;
             if(x==x1 && y==y1)
@@ -86,7 +86,6 @@ public class Main {
             sum += board[x][y];
             x += dx[idx]; y += dy[idx];
         }
-        
         return sum;
     }
 
