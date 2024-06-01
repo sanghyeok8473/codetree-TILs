@@ -11,6 +11,11 @@ public class Main {
         str = sc.next(); n = str.length();
 
         char[] s = str.toCharArray();
+
+        if(allSame(s)){
+            System.out.print(3);
+            System.exit(0);
+        }
         
         for(int cnt = 0 ; cnt < n ; cnt++){
             char temp = s[n-1];
@@ -31,5 +36,14 @@ public class Main {
             }
         }
         return len;
+    }
+
+    public static boolean allSame(char[] s){
+        boolean nowAllSame = true;
+        for(int i = 0 ; i < n-1 ; i++){
+            if(s[i] != s[i+1])
+                nowAllSame = false;
+        }
+        return nowAllSame;
     }
 }
