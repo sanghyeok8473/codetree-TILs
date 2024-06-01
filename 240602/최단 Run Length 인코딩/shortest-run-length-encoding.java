@@ -34,9 +34,6 @@ public class Main {
                 }
             }
         }
-        if(s[s.length-1] != s[s.length-2])
-            len += 2;
-        
         return len;
     }
 }
