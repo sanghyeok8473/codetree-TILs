@@ -105,6 +105,6 @@ public class Main {
             board[nowR][nowC] = board[nowR+1][nowC-1];
             nowR++; nowC--;
         }
-        board[r-m1-m2+1][c+m1-m2-1] = temp3; // 3완료.
+        board[r-m1-m2+m3-1][c+m1-m2-m3+1] = temp3; // 3완료.
     }
 }
