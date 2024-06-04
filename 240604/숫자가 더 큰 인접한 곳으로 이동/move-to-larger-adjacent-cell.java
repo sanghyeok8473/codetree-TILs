@@ -19,11 +19,12 @@ public class Main {
          // 입력 파트
         currX = r; currY = c;       // 값의 비교에 따라 변화될 좌표를 설정.
         answer[idx] = board[r][c];  // 이동 경로를 담아줄 1차원 배열
-        while(true){ // 이동이 멈추는 조건은 더 이상 나아갈 곳이 없을 때.
+         // 이동이 멈추는 조건은 더 이상 나아갈 곳이 없을 때. 그 여부는, move함수에서 판단할 것임.
             move(currX, currY);
-        }
+        
     }
     public static void move(int row, int col){
+        while(true){
         boolean none = true;
         for(int i = 0 ; i < 4 ; i++){
             int nowX = row + dx[i], nowY = col + dy[i];
@@ -35,7 +36,8 @@ public class Main {
         }
         if(none){           // none이 여전이 true면, 4방향 모두 값이 currX,currY 이하라는 의미임. 그러면 지금까지의 이동경로 출력 후 종료.
             printAns();
-            System.exit(0);
+            break;
+        }
         }
     }
 
