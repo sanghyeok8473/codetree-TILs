@@ -17,12 +17,11 @@ public class Main {
             for(int j = 0 ; j < n ; j++)
                 board[i][j] = sc.nextInt();
          // 입력 파트
-        currX = r; currY = c;
-        answer[idx] = board[r][c];
-        while(inRange(currX, currY)){
+        currX = r; currY = c;       // 값의 비교에 따라 변화될 좌표를 설정.
+        answer[idx] = board[r][c];  // 이동 경로를 담아줄 1차원 배열
+        while(inRange(currX, currY)){ // 이동이 멈추는 조건은 더 이상 나아갈 곳이 없을 때.
             move(currX, currY);
         }
-        printAns();
     }
     public static void move(int row, int col){
         boolean none = true;
@@ -34,17 +33,17 @@ public class Main {
                 none = false; break;
             }
         }
-        if(none){
+        if(none){           // none이 여전이 true면, 4방향 모두 값이 currX,currY 이하라는 의미임. 그러면 지금까지의 이동경로 출력 후 종료.
             printAns();
             System.exit(0);
         }
     }
 
-    public static boolean inRange(int row, int col){
+    public static boolean inRange(int row, int col){            // 받은 좌표 값이 범위 내의 좌표인지 판단
         return (row >= 0 && row < n && col >= 0 && col < n);
     }
 
-    public static void printAns(){
+    public static void printAns(){              // 어떠한 이유로든 종료가 되면, 정답을 출력. idx와 answer배열 모두 전역변수이므로 문제없음.
         for(int i = 0 ; i <= idx ; i++)
             System.out.print(answer[i]+" ");
     }
