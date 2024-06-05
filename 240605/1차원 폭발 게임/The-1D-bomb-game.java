@@ -50,7 +50,7 @@ public class Main {
                 i = endIdx;
             }
         }
-        temp = new int[cnt];
+        temp = new int[idx];
         int imsi = 0;
         for(int i = 0 ; i < idx ; i++){
             if(board[i] != 0){
