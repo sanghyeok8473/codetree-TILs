@@ -144,7 +144,7 @@ public class Main {
                     temp[i][idx] = board[i][j];
                     idx--;
                     if(j == 1)
-                        temp[i][j+1] = board[i][j+1];
+                        temp[i][j-1] = board[i][j-1];
                 }
                 else if (board[i][j] == board[i][j-1]){
                     board[i][j] += board[i][j-1];
