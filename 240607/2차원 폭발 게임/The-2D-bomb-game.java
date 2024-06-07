@@ -19,11 +19,12 @@ public class Main {
             System.exit(0);
         }
 
-        while(!noMoreBoom(board)){
+        for(int i = 0 ; i < k ; i++){
             board = boom();
             board = rotate();
             board = gravity();
         }
+
         for(int i = 0 ; i < n ; i++)
             for(int j = 0 ; j < n ; j++)
                 if(board[i][j] != 0)
