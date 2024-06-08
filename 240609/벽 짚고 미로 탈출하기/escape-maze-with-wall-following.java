@@ -27,7 +27,7 @@ public class Main {
         
         while(true){
             move();
-            if(firstMove == true && x == startX && y == startY){
+            if(firstMove == true && x == startX && y == startY && dir == 0){
                 System.out.print(-1);
                 System.exit(0);
             }
