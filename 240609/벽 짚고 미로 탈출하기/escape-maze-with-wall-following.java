@@ -19,6 +19,11 @@ public class Main {
             for(int j = 0 ; j < n ; j++)
                 board[i][j] = str.charAt(j);
         }   // 입력 파트
+
+        if(board[x + dx[0]][y + dy[0]] == '#' && board[x + dx[1]][y + dy[1]] == '#' && board[x + dx[2]][y + dy[2]] == '#' && board[x + dx[3]][y + dy[3]] == '#'){
+            System.out.print(-1);
+            System.exit(0);
+        }
         
         while(true){
             move();
