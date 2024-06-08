@@ -20,14 +20,14 @@ public class Main {
                 board[i][j] = str.charAt(j);
         }   // 입력 파트
 
-        if(x >= 1 && y >= 1 && board[x + dx[0]][y + dy[0]] == '#' && board[x + dx[1]][y + dy[1]] == '#' && board[x + dx[2]][y + dy[2]] == '#' && board[x + dx[3]][y + dy[3]] == '#'){
+        if(x >= 1 && y >= 1 &&  x < n-1 && y < n-1 && board[x + dx[0]][y + dy[0]] == '#' && board[x + dx[1]][y + dy[1]] == '#' && board[x + dx[2]][y + dy[2]] == '#' && board[x + dx[3]][y + dy[3]] == '#'){
             System.out.print(-1);
             System.exit(0);
         }
         
         while(true){
             move();
-            if(firstMove == true && x == startX && y == startY && dir == 0){
+            if(firstMove == true && x == startX && y == startY && dir == 0){    // 만약 시작점으로 돌아왔어도, 방향이 반대면 나갈 수 있다는 의미임.
                 System.out.print(-1);
                 System.exit(0);
             }
