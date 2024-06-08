@@ -2,7 +2,8 @@ import java.util.Scanner;
 import java.util.*;
 
 public class Main {
-    public static int n, x, y, t = 0, dir = 0;
+    public static int n, x, y, t = 0, dir = 0, startX, startY;
+    public static boolean firstMove = false;
     public static char[][] board;
     public static int[] dx = { 0, 1, 0, -1 };  // 시계
     public static int[] dy = { 1, 0, -1, 0 };                        
@@ -12,7 +13,7 @@ public class Main {
         Scanner sc = new Scanner(System.in);
     
         n = sc.nextInt(); x = sc.nextInt(); y = sc.nextInt();
-        x--; y--; board = new char[n][n];
+        x--; y--; board = new char[n][n]; startX = x; startY =  y;
         for(int i = 0 ; i < n ; i++){
             String str = sc.next();
             for(int j = 0 ; j < n ; j++)
@@ -21,6 +22,10 @@ public class Main {
         
         while(true){
             move();
+            if(firstMove == true && x == startX && y == startY){
+                System.out.print(-1);
+                System.exit(0);
+            }
         }
     }
     public static void move(){
@@ -34,8 +39,10 @@ public class Main {
         else{     // 바로 앞이  벽이 아니여서 이동이 가능할 때
             if(board[nextX+dx[(dir+1)%4]][nextY+dy[(dir+1)%4]] == '#'){  // 더 나아갔을 때, 그 방향 기준 오른쪽이니까, 시계방향
                 x = nextX; y = nextY; t++;
+                firstMove = true;
             }
             else{
+                firstMove = true;
                 x = nextX; y = nextY; t++;
                 dir = (dir+1)%4;
                 x += dx[dir]; y += dy[dir]; t++;
