@@ -71,14 +71,4 @@ public class Main {
     public static boolean inRange(int row, int col){            // 받은 좌표 값이 범위 내의 좌표인지 판단
         return (row >= 0 && row < n && col >= 0 && col < n);
     }
-
-    public static void print(){            
-        for(int i = 0 ; i < n ; i++){
-            for(int j = 0 ; j < n ; j++){
-                System.out.print(board[i][j]+" ");
-            }
-            System.out.println();
-        }
-    }
-
 }
