@@ -1,7 +1,7 @@
 import java.util.*;
 
-// 1(/)일때, 상/하이면 우회전 해서 우/좌, 좌/우이면 좌회전해서 상/하 (dir+1)%4
-// 2(\)일때, 상/하이면 좌회전 해서 좌/우, 좌/우이면 우회전해서 하/상 (dir+3)%4
+// 1(/)일때, 방향이 상/하이면 우회전 해서 우/좌, 방향이 좌/우이면 좌회전해서 하/상 (dir+1)%4 / (dir+3)%4
+// 2(\)일때, 방향이 상/하이면 좌회전 해서 좌/우, 방향이 좌/우이면 우회전해서 상/하 (dir+3)%4 / (dir+1)%4 
 
 public class Main {
     public static int n, nowT, nowDir, maxTime = 0;
@@ -39,11 +39,17 @@ public class Main {
                     x += dx[nowDir]; y += dy[nowDir]; nowT++;
                     break;
                 case 1: // /모양.
-                    nowDir = (nowDir+1)%4;
+                    if(nowDir == 0 || nowDir == 2)
+                        nowDir = (nowDir+1)%4;
+                    else
+                        nowDir = (nowDir+3)%4;
                     x += dx[nowDir]; y += dy[nowDir]; nowT++;
                     break;
                 case 2: // \모양.
-                    nowDir = (nowDir+3)%4;
+                    if(nowDir == 0 || nowDir == 2)
+                        nowDir = (nowDir+3)%4;
+                    else
+                        nowDir = (nowDir+1)%4;
                     x += dx[nowDir]; y += dy[nowDir]; nowT++;
                     break;
             }
@@ -60,11 +66,17 @@ public class Main {
                     x += dx[nowDir]; y += dy[nowDir]; nowT++;
                     break;
                 case 1: // /모양.
-                    nowDir = (nowDir+1)%4;
+                    if(nowDir == 0 || nowDir == 2)
+                        nowDir = (nowDir+1)%4;
+                    else
+                        nowDir = (nowDir+3)%4;
                     x += dx[nowDir]; y += dy[nowDir]; nowT++;
                     break;
                 case 2: // \모양.
-                    nowDir = (nowDir+3)%4;
+                    if(nowDir == 0 || nowDir == 2)
+                        nowDir = (nowDir+3)%4;
+                    else
+                        nowDir = (nowDir+1)%4;
                     x += dx[nowDir]; y += dy[nowDir]; nowT++;
                     break;
             }
@@ -81,11 +93,17 @@ public class Main {
                     x += dx[nowDir]; y += dy[nowDir]; nowT++;
                     break;
                 case 1: // /모양.
-                    nowDir = (nowDir+1)%4;
+                    if(nowDir == 0 || nowDir == 2)
+                        nowDir = (nowDir+1)%4;
+                    else
+                        nowDir = (nowDir+3)%4;
                     x += dx[nowDir]; y += dy[nowDir]; nowT++;
                     break;
                 case 2: // \모양.
-                    nowDir = (nowDir+3)%4;
+                    if(nowDir == 0 || nowDir == 2)
+                        nowDir = (nowDir+3)%4;
+                    else
+                        nowDir = (nowDir+1)%4;
                     x += dx[nowDir]; y += dy[nowDir]; nowT++;
                     break;
             }
@@ -102,11 +120,17 @@ public class Main {
                     x += dx[nowDir]; y += dy[nowDir]; nowT++;
                     break;
                 case 1: // /모양.
-                    nowDir = (nowDir+1)%4;
+                    if(nowDir == 0 || nowDir == 2)
+                        nowDir = (nowDir+1)%4;
+                    else
+                        nowDir = (nowDir+3)%4;
                     x += dx[nowDir]; y += dy[nowDir]; nowT++;
                     break;
                 case 2: // \모양.
-                    nowDir = (nowDir+3)%4;
+                    if(nowDir == 0 || nowDir == 2)
+                        nowDir = (nowDir+3)%4;
+                    else
+                        nowDir = (nowDir+1)%4;
                     x += dx[nowDir]; y += dy[nowDir]; nowT++;
                     break;
             }
