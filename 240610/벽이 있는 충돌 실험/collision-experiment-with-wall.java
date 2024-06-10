@@ -1,4 +1,3 @@
-// 같은 방향으로 제자리로 돌아오는데에 걸리는 시간은, 8초.
 import java.util.*;
 
 class Marble {
@@ -17,7 +16,7 @@ class Marble {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Marble marble = (Marble) o;
-        return x == marble.x && y == marble.y && dir == marble.dir;
+        return x == marble.x && y == marble.y;
     }
 
     @Override
@@ -66,20 +65,22 @@ public class Main {
                 marbles.add(nowMarble);
                 
             }
-            for(int time = 0 ; time < 8 ; time ++){
+            for(int time = 0 ; time < 100 ; time ++){
                 for(int j = 0 ; j < marbles.size() ; j++){
-                    int[] nextXandYandDir = move(marbles.get(j).x, marbles.get(j).y, marbles.get(j).dir);
-                    marbles.get(j).x = nextXandYandDir[0];
-                    marbles.get(j).y = nextXandYandDir[1];
-                    marbles.get(j).dir = nextXandYandDir[2];
+                    int[] nextXYDir = move(marbles.get(j).x, marbles.get(j).y, marbles.get(j).dir);
+                    marbles.get(j).x = nextXYDir[0];
+                    marbles.get(j).y = nextXYDir[1];
+                    marbles.get(j).dir = nextXYDir[2];
                 }
                 for(int k = 0 ; k < marbles.size()-1 ; k++){
                     for(int j = k+1 ; j < marbles.size() ; j++){
                         if(marbles.get(k).x == marbles.get(j).x && marbles.get(k).y == marbles.get(j).y){
-                            int removeX1 = marbles.get(k).x, removeY1 = marbles.get(k).y, removeDir1 = marbles.get(k).dir;
-                            int removeX2 = marbles.get(j).x, removeY2 = marbles.get(j).y, removeDir2 = marbles.get(j).dir;
-                            marbles.remove(new Marble(removeX1, removeY1, removeDir1));
-                            marbles.remove(new Marble(removeX2, removeY2, removeDir2));
+                            int removeX = marbles.get(k).x, removeY = marbles.get(k).y;
+                            marbles.remove(new Marble(removeX, removeY, 0));
+                            marbles.remove(new Marble(removeX, removeY, 1));
+                            marbles.remove(new Marble(removeX, removeY, 2));
+                            marbles.remove(new Marble(removeX, removeY, 3));
+                            break;
                         }
                     }
                 }
