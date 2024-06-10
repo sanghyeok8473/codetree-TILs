@@ -65,7 +65,7 @@ public class Main {
                 marbles.add(nowMarble);
                 
             }
-            for(int time = 0 ; time < m*2 ; time ++){
+            for(int time = 0 ; time < n*2 ; time ++){
                 for(int j = 0 ; j < marbles.size() ; j++){
                     int[] nextXYDir = move(marbles.get(j).x, marbles.get(j).y, marbles.get(j).dir);
                     marbles.get(j).x = nextXYDir[0];
