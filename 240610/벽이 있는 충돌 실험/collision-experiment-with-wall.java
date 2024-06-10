@@ -38,10 +38,10 @@ public class Main {
         Scanner sc = new Scanner(System.in);
 
         t = sc.nextInt(); answer = new int[t];
-        ArrayList<Marble> marbles = new ArrayList<>();
         for(int caseNum = 0 ; caseNum < t ; caseNum ++){
             n = sc.nextInt(); m = sc.nextInt();
             board = new int[n][n];
+            ArrayList<Marble> marbles = new ArrayList<>();
             for(int i = 0 ; i < m ; i++){
                 int nowX = sc.nextInt();
                 int nowY = sc.nextInt();
@@ -84,9 +84,11 @@ public class Main {
                     }
                 }
             }
-
+            answer[caseNum] = marbles.size();
         }
-        System.out.println(marbles.size()); // 정답 출력
+        for(int ans : answer)
+            System.out.println(ans);
+        // 정답 출력
     }
 
     public static int[] move(int x, int y, int dir){
