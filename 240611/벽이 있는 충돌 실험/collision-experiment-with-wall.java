@@ -10,6 +10,21 @@ class Marble {
         this.y = y;
         this.dir = dir;
     }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(x, y);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null || getClass() != obj.getClass())
+            return false;
+        Marble marble = (Marble) obj;
+        return x == marble.x && y == marble.y;
+    }
 }
 
 public class Main {
@@ -53,25 +68,21 @@ public class Main {
             }
 
             for (int time = 0; time < n * 2; time++) {
-                HashMap<String, Integer> positionCount = new HashMap<>();
-                HashMap<String, Marble> newMarbles = new HashMap<>();
+                HashMap<Marble, Integer> positionCount = new HashMap<>();
+                ArrayList<Marble> newMarbles = new ArrayList<>();
 
                 for (Marble marble : marbles) {
                     int[] nextXYDir = move(marble.x, marble.y, marble.dir);
-                    String key = nextXYDir[0] + "," + nextXYDir[1];
+                    Marble newMarble = new Marble(nextXYDir[0], nextXYDir[1], nextXYDir[2]);
 
-                    if (positionCount.containsKey(key)) {
-                        positionCount.put(key, positionCount.get(key) + 1);
-                    } else {
-                        positionCount.put(key, 1);
-                        newMarbles.put(key, new Marble(nextXYDir[0], nextXYDir[1], nextXYDir[2]));
-                    }
+                    positionCount.put(newMarble, positionCount.getOrDefault(newMarble, 0) + 1);
+                    newMarbles.add(newMarble);
                 }
 
                 marbles.clear();
-                for (String key : newMarbles.keySet()) {
-                    if (positionCount.get(key) == 1) {
-                        marbles.add(newMarbles.get(key));
+                for (Marble marble : newMarbles) {
+                    if (positionCount.get(marble) == 1) {
+                        marbles.add(marble);
                     }
                 }
             }
