@@ -57,7 +57,7 @@ public class Main {
                 Marble nowMarble = new Marble(nowX, nowY, nowDir);
                 marbles.add(nowMarble);
             }
-            for(int time = 0 ; time < n*n ; time ++){ // 같은 방향을 쳐다보면서 되돌아오려면, n*2의 시간이 필요. 처음에는 반드시 구슬이 겹치지 않게 주어짐.
+            for(int time = 0 ; time < n*2 ; time ++){ // 같은 방향을 쳐다보면서 되돌아오려면, n*2의 시간이 필요. 처음에는 반드시 구슬이 겹치지 않게 주어짐.
                 count = new int[n][n];                 // 이동 후의 구슬 위치를 기록해줄 배열 선언.
                 for(int j = 0 ; j < marbles.size() ; j++){
                     int[] nextXYDir = move(marbles.get(j).x, marbles.get(j).y, marbles.get(j).dir);
@@ -66,6 +66,8 @@ public class Main {
                     marbles.get(j).dir = nextXYDir[2];
                 }
                 Collections.sort(marbles);
+                if(cantCrush(marbles))
+                    break;
                 for(int k = 0 ; k < marbles.size()-1 ; k++){
                     if(marbles.get(k).x == marbles.get(k+1).x && marbles.get(k).y == marbles.get(k+1).y){
                         marbles.remove(k); marbles.remove(k);
@@ -125,6 +127,16 @@ public class Main {
 
     public static boolean rangeValid(int r, int c){
         return (r >= 0 && r < n && c >= 0 && c < n);
+    }
+
+    public static boolean cantCrush(ArrayList<Marble> marbles){ // 모든 구슬이 수평이거나 수직이면, 끝내도 됨.
+        int firstDir = marbles.get(0).dir; // (dir+2)%4
+
+        for(int k = 1 ; k < marbles.size(); k++ ){
+            if(marbles.get(k).dir != firstDir && marbles.get(k).dir != (firstDir+2)%4)
+                return false;
+        }
+        return true;
     }
 }
 
