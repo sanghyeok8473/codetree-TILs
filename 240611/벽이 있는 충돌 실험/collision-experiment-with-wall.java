@@ -65,9 +65,9 @@ public class Main {
                     marbles.get(j).y = nextXYDir[1];
                     marbles.get(j).dir = nextXYDir[2];
                 }
-                Collections.sort(marbles);
-                if(cantCrush(marbles))
+                if(m > 3 && cantCrush(marbles))
                     break;
+                Collections.sort(marbles);
                 for(int k = 0 ; k < marbles.size()-1 ; k++){
                     if(marbles.get(k).x == marbles.get(k+1).x && marbles.get(k).y == marbles.get(k+1).y){
                         marbles.remove(k); marbles.remove(k);
