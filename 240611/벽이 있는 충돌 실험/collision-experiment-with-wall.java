@@ -129,14 +129,32 @@ public class Main {
         return (r >= 0 && r < n && c >= 0 && c < n);
     }
 
-    public static boolean cantCrush(ArrayList<Marble> marbles){ // 모든 구슬이 수평이거나 수직이면, 끝내도 됨.
-        int firstDir = marbles.get(0).dir; // (dir+2)%4
+    public static boolean cantCrush(ArrayList<Marble> marbles){ // 모든 구슬이 수평이거나 수직이면, 끝내도 됨(단, 좌우면 x가 달라야하고, 상하면 y가 달라야함.).
+        for(int i = 0 ; i < marbles.size()-1 ; i++ ){
+            int firstDir = marbles.get(i).dir; // (dir+2)%4
+            int firstX = marbles.get(i).x;
+            int firstY = marbles.get(i).y;
 
-        for(int k = 0 ; k < marbles.size(); k++ ){
-            if(marbles.get(k).dir != firstDir && marbles.get(k).dir != (firstDir+2)%4)
-                return false;
+            for(int j = i+1 ; j < marbles.size() ; j++ ){
+                if(firstDir == 1 || firstDir == 3){
+                    for(int k = 0 ; k < marbles.size(); k++ ){
+                        if(marbles.get(j).dir != firstDir && marbles.get(j).dir != (firstDir+2)%4)
+                            return false;
+                        else if(marbles.get(j).x == firstX)
+                            return false;
+                    }
+                }
+                else{
+                    for(int k = 0 ; k < marbles.size(); k++ ){
+                        if(marbles.get(j).dir != firstDir && marbles.get(j).dir != (firstDir+2)%4)
+                            return false;
+                        else if(marbles.get(j).y == firstY)
+                            return false;
+                    }
+                }
+            }
         }
-        return true;
+    return true;
     }
 }
 
