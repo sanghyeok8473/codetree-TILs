@@ -132,7 +132,7 @@ public class Main {
     public static boolean cantCrush(ArrayList<Marble> marbles){ // 모든 구슬이 수평이거나 수직이면, 끝내도 됨.
         int firstDir = marbles.get(0).dir; // (dir+2)%4
 
-        for(int k = 1 ; k < marbles.size(); k++ ){
+        for(int k = 0 ; k < marbles.size(); k++ ){
             if(marbles.get(k).dir != firstDir && marbles.get(k).dir != (firstDir+2)%4)
                 return false;
         }
