@@ -57,14 +57,13 @@ public class Main {
                 Marble nowMarble = new Marble(nowX, nowY, nowDir);
                 marbles.add(nowMarble);
             }
-            for(int time = 0 ; time < n*2 ; time ++){ // 같은 방향을 쳐다보면서 되돌아오려면, n*2의 시간이 필요. 처음에는 반드시 구슬이 겹치지 않게 주어짐.
+            for(int time = 0 ; time < n ; time ++){ // 같은 방향을 쳐다보면서 되돌아오려면, n*2의 시간이 필요. 처음에는 반드시 구슬이 겹치지 않게 주어짐.
                 count = new int[n][n];                 // 이동 후의 구슬 위치를 기록해줄 배열 선언.
                 for(int j = 0 ; j < marbles.size() ; j++){
                     int[] nextXYDir = move(marbles.get(j).x, marbles.get(j).y, marbles.get(j).dir);
                     marbles.get(j).x = nextXYDir[0];
                     marbles.get(j).y = nextXYDir[1];
                     marbles.get(j).dir = nextXYDir[2];
-                    count[nextXYDir[0]][nextXYDir[1]]++;
                 }
                 Collections.sort(marbles);
                 for(int k = 0 ; k < marbles.size()-1 ; k++){
