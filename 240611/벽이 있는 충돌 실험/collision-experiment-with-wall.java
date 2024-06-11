@@ -10,12 +10,7 @@ class Marble {
         this.y = y;
         this.dir = dir;
     }
-
-    @Override
-    public String toString() {
-        return "Marble(" + x + "," + y + "," + dir + ")";
-    }
-};
+}
 
 public class Main {
     public static int t, n, m;
@@ -90,20 +85,14 @@ public class Main {
     }
 
     public static int[] move(int x, int y, int dir) {
-        int[] temp = new int[3];
         int nx = x + dx[dir];
         int ny = y + dy[dir];
 
         if (rangeValid(nx, ny)) {
-            temp[0] = nx;
-            temp[1] = ny;
-            temp[2] = dir;
+            return new int[]{nx, ny, dir};
         } else {
-            temp[0] = x;
-            temp[1] = y;
-            temp[2] = (dir + 2) % 4;
+            return new int[]{x, y, (dir + 2) % 4};
         }
-        return temp;
     }
 
     public static boolean rangeValid(int r, int c) {
