@@ -27,7 +27,7 @@ public class Main {
     }
     public static void move(){
         boolean none = true; // 1이 하나도 없음을 의미함.
-        for(int i = 1 ; i < n ; i++){
+        for(int i = 0 ; i < n ; i++){
             none = true;
             for(int j = first ; j <= end ; j++){
                 if(board[i][j] == 1)
@@ -36,6 +36,12 @@ public class Main {
             if(none == false){
                 for(int j = first ; j <= end ; j++){
                     board[i-1][j] = 1;
+                }
+                break;
+            }
+            else if(i == n-1){  // 내려가다가 끝까지 블록을 놓는 조건이 되면, 그 자리에 그냥 두면 됨.
+                for(int j = first ; j <= end ; j++){
+                    board[i][j] = 1;
                 }
                 break;
             }
