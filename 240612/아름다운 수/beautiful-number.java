@@ -22,7 +22,7 @@ public class Main {
                 return false;
             nowNum = answer.get(idx);
             for(int i = idx ; i < idx + nowNum ; i++){
-                if(answer.get(i) != nowNum || answer.get(i) > 4)
+                if(answer.get(i) != nowNum)
                     return false;
             }
             idx += nowNum;
@@ -38,7 +38,7 @@ public class Main {
             return;
         }
 
-        for(int i = 1 ; i <= n ; i++){
+        for(int i = 1 ; i <= 4 ; i++){      // 1이상 4이하만 되므로, 모든 수열을 추가해볼 필요가 없다.
             answer.add(i);
             choose(i);
             answer.remove(answer.size()-1);
