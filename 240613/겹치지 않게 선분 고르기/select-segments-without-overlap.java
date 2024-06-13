@@ -21,7 +21,7 @@ public class Main {
                 if(x1x2.get(now).x1 == x1x2.get(next).x1 && x1x2.get(now).x2 == x1x2.get(next).x2){ // 같은 선분을 넣은 조합이면 판단 X
                     return false;
                 }
-                else if((x1x2.get(next).x1 >= x1x2.get(now).x1 && x1x2.get(next).x1 <= x1x2.get(now).x2) || (x1x2.get(next).x2 >= x1x2.get(now).x1 && x1x2.get(next).x2 <= x1x2.get(now).x2)){    // 겹치는 조건 : 한 선분의 두 끝점 중 하나라도 다른 선분의 사이에 들어가면 겹침.
+                else if((x1x2.get(next).x1 >= x1x2.get(now).x1 && x1x2.get(next).x1 <= x1x2.get(now).x2) || (x1x2.get(next).x2 >= x1x2.get(now).x1 && x1x2.get(next).x2 <= x1x2.get(now).x2) || (x1x2.get(next).x1 <= x1x2.get(now).x1 && x1x2.get(next).x2 >= x1x2.get(now).x2) || (x1x2.get(now).x1 <= x1x2.get(next).x1 && x1x2.get(now).x2 >= x1x2.get(next).x2)){    // 겹치는 조건 : 한 선분의 두 끝점 중 하나라도 다른 선분의 사이에 들어가면 겹침.
                     return false;
                 }
             }
