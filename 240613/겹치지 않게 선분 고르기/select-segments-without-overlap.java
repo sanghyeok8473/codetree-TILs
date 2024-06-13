@@ -18,10 +18,13 @@ public class Main {
         }
 
         for(int i = 0 ; i < n-1 ; i++){
-            int nowCnt = 1;
+            int nowCnt = 1, minX = x1[i], maxX = x2[i];
             for(int j = i+1 ; j < n ; j++){
-                if(x2[i] < x1[j] || x2[j] < x1[i])      // 첫 번째 선분의 끝이 두 번째 선분의 시작보다 뒤에 있거나, 첫 번째 선분의 시작이 두 번째 선분의 끝보다 앞에 있으면 됨.
+                if(maxX < x1[j] || x2[j] < minX){       // 안 겹치면
                     nowCnt++;
+                    minX = Math.min(minX, x1[j]);
+                    maxX = Math.max(maxX, x2[j]);
+                }
             }
             maxCnt = Math.max(maxCnt, nowCnt);
         }
