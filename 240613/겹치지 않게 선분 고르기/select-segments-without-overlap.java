@@ -1,7 +1,7 @@
 import java.util.*;
 
 public class Main {
-    public static int n, maxCnt = 0;
+    public static int n, maxCnt = 1;
     public static int[] x1;
     public static int[] x2;
 
