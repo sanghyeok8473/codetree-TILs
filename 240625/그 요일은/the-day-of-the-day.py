@@ -15,19 +15,11 @@ def numOfDays(m, d):
 start = numOfDays(m1, d1)
 end = numOfDays(m2, d2)
 cnt = 0
+now_day = 1 # 시작 요일을 월요일로 고정
 
 for i in range(start, end + 1):
-    if(i % 7 == a):
+    if(now_day % 7 == a):
         cnt += 1
-"""
-day_diff = numOfDays(m2, d2) - numOfDays(m1, d1)
-cnt = day_diff // 7 ## 일단 이 만큼은 등장했고, 남은 일수동안 요일이 한 번 더 있는지 여부를 확인하면 됨
-
-end = (numOfDays(m2, d2)) % 7
-if end == 0:
-    cnt += 1
-elif 1 <= a <= end:
-    cnt += 1
-"""
+    now_day = (now_day + 1) % 7
 
 print(cnt)
