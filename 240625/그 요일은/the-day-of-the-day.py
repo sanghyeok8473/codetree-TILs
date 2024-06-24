@@ -16,6 +16,8 @@ start = numOfDays(m1, d1)
 end = numOfDays(m2, d2)
 cnt = 0
 now_day = 1 # 시작 요일을 월요일로 고정
+# 시작 요일을 월요일로 고정해야 하는 이유 : 24.01.01은 월요일이지만, 실제 문제는 그저 윤년인 해의 m1 d1이 월요일일때를 가정. 즉, 시작 요일을 고정해줘야 numOfDays 함수를
+# 통해 나온 두 개의 일 수 동안의 요일의 수를 정상적으로 세줄 수 있다.
 
 for i in range(start, end + 1):
     if(now_day % 7 == a):
