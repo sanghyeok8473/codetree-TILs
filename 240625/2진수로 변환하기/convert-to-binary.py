@@ -2,7 +2,11 @@ n = int(input())
 
 result = []
 
-while n >= 0:
+while True:
+    if n < 2:
+        result.append(n)
+        break
+
     result.append(n % 2)
     n = n // 2
 
