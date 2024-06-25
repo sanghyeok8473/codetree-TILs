@@ -5,11 +5,6 @@ now = 1000
 
 segments = [tuple(input().split()) for _ in range(n)] # 이 때, x는 아직 문자열임.
 
-def printnow():
-    for i in range(1000 -11 , 1000 + 2 + 1):
-        print(board[i], end = " ")
-    print(now)
-
 for x, R in segments:
     x = int(x)
     if(R == 'L'):
