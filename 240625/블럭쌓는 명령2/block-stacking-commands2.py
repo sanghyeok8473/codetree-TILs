@@ -6,6 +6,4 @@ for _ in range(k):
     for i in range(nowA - 1, nowB):
         blocks[i] += 1
 
-blocks.sort(reverse = True) # 내림차순으로 정렬
-
-print(blocks[0])
+print(max(blocks))
