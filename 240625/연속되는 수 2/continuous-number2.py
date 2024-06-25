@@ -5,7 +5,7 @@ arr = []
 for _ in range(n):
     arr.append(int(input()))
 
-maxCnt = 0
+maxCnt = 1
 
 for i in range(0, n-1):
     if arr[i] == arr[i+1]:
