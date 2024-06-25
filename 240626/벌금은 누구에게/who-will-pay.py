@@ -11,5 +11,5 @@ for i in range(m):
     if students[arr[i]] >= k:
         print(arr[i])
         break;
-    if(i == m-1)
+    if(i == m-1):
         print(-1)
