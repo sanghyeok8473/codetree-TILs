@@ -5,16 +5,13 @@ arr = []
 for _ in range(n):
     arr.append(int(input()))
 
-maxCnt = 1
+maxCnt, cnt = 0, 0
 
-for i in range(0, n-1):
+for i in range(n-1):
     if arr[i] == arr[i+1]:
-        cnt = 0
-        for j in range(i, n):
-            if arr[i] == arr[j]:
-                cnt += 1
-            else:
-                break
-        maxCnt = max(maxCnt, cnt)
+        cnt += 1
+    else:
+        cnt = 1
+    maxCnt = max(cnt, maxCnt)
 
 print(maxCnt)
