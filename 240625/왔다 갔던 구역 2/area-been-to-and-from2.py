@@ -33,7 +33,3 @@ for i in range(2000):
         cnt += 1
 
 print(cnt)
-
-
-
-printnow()
