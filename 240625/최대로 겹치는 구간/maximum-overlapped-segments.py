@@ -1,5 +1,5 @@
 n = int(input())
-board = [0] * 200
+board = [0] * 201
 
 segments = [tuple(map(int, input().split())) for _ in range(n)]
 
