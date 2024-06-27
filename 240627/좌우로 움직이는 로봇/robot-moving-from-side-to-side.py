@@ -37,12 +37,12 @@ def record(order, pos):
     if(time < max_time): # a가 b보다 이동시간이 짧으면, 이동을 마친 이후 b가 이동을 마칠 때까지 제자리에 있음을 명시해야함.
         for i in range(time, max_time + 1):
             pos[i] = pos[i - 1]   
-             
-record(a_order, a_pos)
-record(b_order, b_pos)
+
+record(a_order, a_pos) # a의 위치를 기록
+record(b_order, b_pos) # b의 위치를 기록
 
 cnt = 0
-for i in range(2, max_time + 1):
+for i in range(2, max_time + 1): # 직전까지는 같이 있지 않다가, 같아지는 경우만 세야 하므로 시작 idx는 2(i와 i-1을 체크하기 때문)
     if a_pos[i] == b_pos[i] and a_pos[i-1] != b_pos[i-1]:
         cnt += 1
 print(cnt)
