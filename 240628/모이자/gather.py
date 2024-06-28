@@ -3,7 +3,7 @@ import sys
 n = int(input())
 A = list(map(int, input().split()))
 
-minCnt = sys.maximize
+minCnt = sys.maxsize
 
 for i in range(len(A)):
     nowCnt = 0
