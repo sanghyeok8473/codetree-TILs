@@ -4,7 +4,7 @@ dy = [1, 0, -1, 0] # 우 하 좌 상
 n = int(input())
 order = [tuple(input().split()) for _ in range(n)]
 
-x, y, time = 0, 0, 0
+x, y, time, ans = 0, 0, 0, -1
 finished = False
 
 for d, t in order:
@@ -35,9 +35,7 @@ for d, t in order:
                 finished = True
                 break
     if finished:
+        ans = time
         break
 
-if finished:
-    print(time)
-else:
-    print(-1)
+print(ans)
