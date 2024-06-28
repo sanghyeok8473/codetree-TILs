@@ -6,6 +6,8 @@ dxs, dys = [-1, 1, 0, 0], [0, 0, -1, 1] # 상 하 좌 우
 
 board = [input() for _ in range(n)]
 p = int(input())
+
+# 입력받은 학생번호를 기준으로 시작 좌표와 방향을 설정
 x = 0 if p <= n else (n - 1 if 2 * n < p <= 3 * n else (p - (n + 1) if n < p <= 2 * n else 4 * n - p))
 y = 0 if 3 * n < p <= 4 * n else (n - 1 if n < p <= 2 * n else (p -  1 if p <= n else 3 * n - p))
 d = 1 if p <= n else (2 if n < p <= 2 * n else (0 if 2 * n < p <= 3 * n else 3))
