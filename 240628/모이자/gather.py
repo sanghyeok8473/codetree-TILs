@@ -1,7 +1,9 @@
+import sys
+
 n = int(input())
 A = list(map(int, input().split()))
 
-minCnt = 100 * 100
+minCnt = sys.maximize
 
 for i in range(len(A)):
     nowCnt = 0
