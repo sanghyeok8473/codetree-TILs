@@ -1,3 +1,5 @@
+diff = ord('A') - ord('a')
+
 for _ in range(5):
     arr = list(input().split())
-    print("%s %s %s" %(chr(ord(arr[0]) - 32), chr(ord(arr[1]) - 32), chr(ord(arr[2]) - 32)))
+    print("%s %s %s" %(chr(ord(arr[0]) + diff), chr(ord(arr[1]) + diff), chr(ord(arr[2]) + diff)))
