@@ -5,13 +5,14 @@ arr = list(map(int, input().split()))
 
 s = SortedSet() # s는 각 점들의 위치를 저장하는 treeset
 s.add(0)
+ans = SortedSet() # ans는 각 점의 양 끝점과의 거리를 저장하는 treeset
+
 for el in arr:
     s.add(el)
-    min_val = 1000000
-    for val in s:
-        left_idx = s.bisect_right(val) # val보다 큰 최초의 위치를 찾는다.
-        right_idx = left_idx - 1 # 바로 직전의 위치를 구한다.
-        
-        if left_idx < len(s):
-            min_val = min(min_val, s[left_idx] - s[right_idx])
-    print(min_val)
+    idx = s.bisect_right(el)
+    if idx < len(s): # el이 가장 큰 숫자가 아니면
+        ans.add((s[idx] - s[idx - 1]))
+        ans.add((s[idx - 1] - s[idx - 2]))
+    else : # 지금 추가된 el이 가장 큰 숫자면
+        ans.add((s[-1] - s[-2]))
+    print(ans[0])
