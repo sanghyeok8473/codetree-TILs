@@ -17,5 +17,5 @@ for key in d:
             ans += len(d[key])*(len(d[key])-1) // 2
         else:
             ans += len(d[key])*len(d[k - key])
-            d[k - key].pop()
+            d[k - key] = []
 print(ans)
