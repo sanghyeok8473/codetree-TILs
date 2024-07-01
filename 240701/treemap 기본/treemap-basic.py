@@ -21,7 +21,7 @@ for _ in range(n):
         else:
             print("None")
     else:
-        if len(sd) == 0:
+        if not sd:
             print("None")
         else:
             for key, value in sd.items():
