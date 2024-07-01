@@ -12,10 +12,13 @@ for el in nums:
 
 # 가능한 숫자 쌍을 찾고, ans는 각 숫자의 키값에 대한 밸류를 곱한 값을 더함.
 
-for i in range(n - 1):
-    for j in range(i + 1, n):
+for i in range(n):
+
+    d[nums[i]] -= 1
+
+    for j in range(i):
         diff = k - nums[i] - nums[j]
         if diff in d:
             ans += d[diff]
 
-print(ans // 3)
+print(ans)
