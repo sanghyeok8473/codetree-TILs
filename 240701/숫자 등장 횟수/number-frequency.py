@@ -7,10 +7,10 @@ nums = list(map(int, input().split()))
 num_to_index = {}
 
 for el in arr:
-    num_to_index[el] = 0
-
-for el in arr:
-    num_to_index[el] += 1
+    if el in num_to_index:
+        num_to_index[el] += 1
+    else:
+        num_to_index[el] = 0
 
 for num in nums:
     if(num not in num_to_index):
