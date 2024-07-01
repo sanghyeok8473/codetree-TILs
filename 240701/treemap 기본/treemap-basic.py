@@ -24,6 +24,6 @@ for _ in range(n):
         if not sd:
             print("None")
         else:
-            for key, value in sd.items():
+            for value in sd.values():
                 print(value, end = " ") 
             print()
