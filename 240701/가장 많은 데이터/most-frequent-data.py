@@ -1,5 +1,6 @@
 n = int(input())
 d = {}
+max_val = 0
 
 for _ in range(n):
     now = input()
@@ -7,10 +8,6 @@ for _ in range(n):
         d[now] += 1
     else:
         d[now] = 1
-
-max_val = 0
-
-for key in d:
-    max_val = max(max_val, d[key])
-
+    max_val = max(max_val, d[now])
+    
 print(max_val)
