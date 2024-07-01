@@ -10,7 +10,7 @@ for el in arr:
     if el in num_to_index:
         num_to_index[el] += 1
     else:
-        num_to_index[el] = 0
+        num_to_index[el] = 1
 
 for num in nums:
     if(num not in num_to_index):
