@@ -5,12 +5,16 @@ ans = 0
 nums = list(map(int, input().split()))
 
 for i in range(n):
-    d[i + 1] = nums[i] # d[위치] = 값
+    if nums[i] in d:
+        d[nums[i]].append(i + 1)
+    else:
+        d[nums[i]] = []
+        d[nums[i]].append(i + 1)
 
-for key1 in d:
-    for key2 in d:
-        if k - d[key1] == d[key2] and key1 != key2:
-            ans += 1
-    
-
-print(ans // 2)
+for key in d:
+    if (k - key) in d:
+        if k == key * 2:
+            ans += len(d[key])*(len(d[key])-1) // 2
+        else:
+            ans += len(d[key])*len(d[k - key])
+print(ans)
