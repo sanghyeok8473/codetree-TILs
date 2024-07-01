@@ -7,7 +7,8 @@ for _ in range(n):
     order = input()
     if order.startswith("add"):
         x = order.split()[1]
-        s.add(x)
+        if x not in d:
+            s.add(x)
     elif order.startswith("remove"):
         x = order.split()[1]
         if x in s:
