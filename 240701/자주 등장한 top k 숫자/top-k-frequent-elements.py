@@ -11,7 +11,7 @@ for el in nums:
     else:
         d[el] = 1
 
-ans = sorted(d.items(), key = lambda x : (-x[1], x[0]))
+ans = sorted(d.items(), key = lambda x : (-x[1], -x[0]))
 
 for i in range(k):
     print(ans[i][0] , end = " ")
