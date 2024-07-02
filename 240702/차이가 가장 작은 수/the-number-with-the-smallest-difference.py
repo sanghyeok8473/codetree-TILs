@@ -10,13 +10,22 @@ s.add(int(input()))
 
 for _ in range(n-1):
     el = int(input())
-    idx = s.bisect_right(el)
+    idx = s.bisect_left(el)
 
-    if idx == len(s): ## 이번에 들어올 값이 이전까지의 최대값보다 큼
-        min_val = min(min_val, el - s[idx - 1]) if el - s[idx - 1] >= m else min_val
-        s.add(el)
-    else: # 이번에 들어온 값보다 큰 값이 이미 있음
-        min_val = min(min_val, s[idx] - el) if s[idx] - el >= m else min_val
-        s.add(el)
+    if idx != len(s): ## 이번에 들어올 값이 이전까지의 최대값보다는 작음
+        while idx < len(s):
+            if s[idx] - el >= m:
+                break
+            idx += 1
+        min_val = min(min_val, s[idx] - el)
+    
+    idx = s.bisect_left(el) - 1
+    while idx >= 0:
+        if el - s[idx] >= m:
+            break
+        idx -= 1
+    min_val = min(min_val, el - s[idx]) if el - s[idx] >= m else min_val
+
+    s.add(el)
 
 print(min_val if min_val != sys.maxsize else -1)
