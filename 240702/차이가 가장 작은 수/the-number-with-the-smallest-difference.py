@@ -1,11 +1,10 @@
-import sys
 from sortedcontainers import SortedSet
 
 # 변수 선언 및 입력:
 n, m = map(int, input().split())
 
 s = SortedSet()
-min_val = sys.maxsize
+min_val = -1
 s.add(int(input()))
 
 for _ in range(n-1):
