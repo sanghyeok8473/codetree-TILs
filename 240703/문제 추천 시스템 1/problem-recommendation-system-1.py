@@ -13,8 +13,7 @@ m = int(input())
 for _ in range(m):
     order = input()
     if order.startswith("rc"):
-        _, x = order.split()
-        x = int(x)
+        x = int(order.split()[1])
         print(question[-1][1] if x == 1 else question[0][1])
     elif order.startswith("ad"): 
         _, p, l = order.split()
