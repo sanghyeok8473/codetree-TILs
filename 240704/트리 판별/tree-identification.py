@@ -12,11 +12,15 @@ visited = [False for _ in range(10001)]
 edges = [[] for _ in range(10001)]
 numbers = set() # 등장한 노드 번호들을 저장해줄 배열, 중복은 허용하지 않으므로 set으로 설정
 
+for _, b in arr:
+    if b in numbers:
+        not_Tree = True # 들어오는 간선이 1개가 아닌 노드가 존재하면 트리가 아님
+    numbers.add(b)
+
 # a에서 b로 간다는 거니까 a->b
 for a, b in arr:
     edges[a].append(b) # a -> b가 존재한다.
     numbers.add(a)
-    numbers.add(b)
 
 find_root = set()
 
@@ -24,16 +28,17 @@ for num in numbers:
     find_root.add(num)
 
 for a, b in arr:
-    find_root.remove(b)
+    if b in find_root:
+        find_root.remove(b)
 
 root = 0
 
-if len(find_root) != 1: # 트리가 아님
+if len(find_root) != 1: # 루트 노드(즉, 들어오는 노드가 없는 노드가 1개가 아니면)가 1개가 아니면 트리가 아님
     not_Tree = True
 else:
     root = find_root.pop()
 
-
+# 루트 노드를 제외한 모든 노드는 반드시 단 하나의 들어오는 간선이 존재해야 한다. : arr의 b가 numbers에 이미 있는지의 여부로 확인 가능
 # 여기서 루트를 찾는다. 만약 numbers에서 b에 있는 모든 숫자를 제거했는데 남은 숫자가 없거나 2개 이상이면, 여기서 성립이 안된다.
 # 남은 숫자가 하나면 그 숫자가 루트노드의 번호이다.  그 루트를 dfs했을 때, numbers에 있는 모든 노드번호가 visited[]에서 True이면, 이거는 트리가 맞다.
 
@@ -51,7 +56,7 @@ if not_Tree:
     print(0)
 else:
     for num in numbers:
-        if not visited[num]:
+        if not visited[num]: # 루트 노드로 판된되는 노드에서 dfs를 했는데 방문하지 못한 곳이 있으면, 트리가 아님
             print(0)
             break
     print(1)
