@@ -28,7 +28,7 @@ def dfs(x):
             parent[y] = x
             dfs(y) # dfs 진행
 
-            dp[x] += dp[y]
+            dp[x] += dp[y] if dp[y] > 0 else 0
 
 visited[1] = True
 dfs(1)
