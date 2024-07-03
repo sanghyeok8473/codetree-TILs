@@ -4,6 +4,9 @@
 # 3. 정점 = 간선 + 1
 # 1, 2, 3번 중 두 개를 만족하면 나머지 1개도 만족하게 되므로, 3개 중 두 개만 만족하면 Tree
 
+import sys
+sys.setrecursionlimit(100000)
+
 n = int(input())
 visited = [False for _ in range(n + 1)]
 edges = [[] for _ in range(n + 1)]
