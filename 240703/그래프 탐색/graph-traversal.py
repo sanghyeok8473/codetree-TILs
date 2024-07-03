@@ -10,6 +10,8 @@ for _ in range(m):
     graph[y][x] = 1
 
 def dfs(vertex):
+    global vertex_cnt
+    
     for curr_v in range(1, n + 1):
         if graph[vertex][curr_v] and not visited[curr_v]:
             visited[curr_v] = True
