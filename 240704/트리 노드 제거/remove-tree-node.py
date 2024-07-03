@@ -26,18 +26,6 @@ def dfs_erase(x):
             visited[y] = True
             dfs_erase(y) # dfs 진행
 
-visited[e] = True
-dfs_erase(e)
-
-edges[arr[e]].remove(e) # 지울 번호 자체도 지우고
-
-for i, visit in enumerate(visited): # 지울 번호의 자식 노드들도 지우고
-    if visit:
-        edges[i] = []
-
-ans = 0
-visited = [False for _ in range(n)]
-
 def dfs_find(x):
     global ans
 
@@ -49,5 +37,20 @@ def dfs_find(x):
             visited[y] = True
             dfs_find(y) # dfs 진행
 
-dfs_find(root) # root노드에서 시작해서, 자식이 0인 경우에 ans를 추가
-print(ans)
+visited[e] = True
+dfs_erase(e)
+
+if e != root: # 지울 노드가 루트노드가 아니면
+    edges[arr[e]].remove(e) # 지울 번호 자체도 지우고
+
+    for i, visit in enumerate(visited): # 지울 번호의 자식 노드들도 지우고
+        if visit:
+            edges[i] = []
+
+    ans = 0
+    visited = [False for _ in range(n)]
+
+    dfs_find(root) # root노드에서 시작해서, 자식이 0인 경우에 ans를 추가
+    print(ans)
+else:
+    print(0)
