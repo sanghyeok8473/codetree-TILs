@@ -15,7 +15,6 @@ for i in range(2, n + 1):
     t, a, p = map(int, input().split())
     a = a if t == 1 else -a
     value[i] = a # i번 노드에는 a라는 값이 적혀있다. 
-    edges[i].append(p)
     edges[p].append(i)
 
 def dfs(x):
