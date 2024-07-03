@@ -7,6 +7,7 @@
 n = int(input())
 visited = [False for _ in range(n + 1)]
 edges = [[] for _ in range(n + 1)]
+parent = [0 for _ in range(n + 1)]
 value  = [0] * (n + 1) # i번 정점의 값
 dp = [0] * (n + 1) # dp[i] : i번 정점의 subtree 속한 수의 총합
 
@@ -24,6 +25,7 @@ def dfs(x):
     for y in edges[x]:
         if not visited[y]: # y를 아직 방문한적이 없으면, x가 y의 부모이다.
             visited[y] = True
+            parent[y] = x
             dfs(y) # dfs 진행
 
             dp[x] += dp[y]
