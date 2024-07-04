@@ -4,7 +4,6 @@ edges = [[] for _ in range(n + 1)]
 visited = [False for _ in range(n + 1)]
 dist = [0] * (n + 1) # 시작점부터 x까지의 거리
 ans = 0
-is_Leaf = [True for _ in range(n + 1)]
 
 piece = [0] * (n - 1)
 
@@ -19,24 +18,26 @@ arr = [
 
 for x, y in arr:
     edges[x].append(y)
-    is_Leaf[x] = False
     
 
 def dfs(x): # y에 도착하면 거리를 출력 후 종료
+    global ans
+
+    is_Leaf = True
+
     for y in edges[x]:
         if not visited[y]: # y를 아직 방문한적이 없으면, x가 y의 부모이다.
             visited[y] = True
             dist[y] = dist[x] + 1
             dfs(y) # dfs 진행
+            
+    if is_Leaf:
+        ans += dist[x]
 
 visited[1] = True
 dfs(1)
 
 # dfs를 루트노드에서 한 번 진행하면 특정 노드부터 루트노드까지의 길이가 기록됨. 이후에는 리프노드의 dist만 전부 더해서 짝홀 여부 판단
-
-for i in range(2, n + 1):
-    if is_Leaf[i]:
-        ans += dist[i]
 
 if ans % 2 == 0:
     print(0)
