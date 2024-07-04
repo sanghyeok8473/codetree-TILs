@@ -1,49 +1,56 @@
 import sys
 sys.setrecursionlimit(100000)
 
+# 변수 선언 및 입력:
 n = int(input())
-
 edges = [[] for _ in range(n + 1)]
-visited = [False for _ in range(n + 1)]
-dist = [0] * (n + 1) # 시작점부터 x까지의 거리
+visited = [False] * (n + 1)
+depth = [0] * (n + 1)
+
+# 리프노드 깊이의 총합
 ans = 0
 
-piece = [0] * (n - 1)
+# n - 1개의 간선 정보를 입력받습니다.
+for _ in range(n - 1):
+    x, y = tuple(map(int, input().split()))
 
-arr = [
-    tuple(map(int, input().split()))
-    for _ in range(n-1)
-]
-
-# 리프노드 : edges[x]가 비어있으면 리프노드, 즉 2 ~ n의 숫자들 중 arr의 x에서 등장하지 않은 수
-# 이 문제는 리프노드들이 루트 노드까지 가는 거리들의 총합을 구한다음, 그 값이 짝수인지 홀수인지 구하면 되는 문제이다.
-# 총합이 홀수이면 1, 총합이 짝수이면 0이다.
-
-for x, y in arr:
+    # 간선 정보를 인접리스트에 넣어줍니다.
     edges[x].append(y)
     edges[y].append(x)
 
-def dfs(x): # y에 도착하면 거리를 출력 후 종료
-    global ans
 
-    is_Leaf = True
+# DFS를 통해 리프노드와 리프노드의 깊이를 탐색합니다.
+def dfs(x):
+    global ans
+    
+    is_leaf = True
 
     for y in edges[x]:
-        if not visited[y]: # y를 아직 방문한적이 없으면, x가 y의 부모이다.
-            visited[y] = True
-            is_Leaf = False
-            dist[y] = dist[x] + 1
-            dfs(y) # dfs 진행
-            
-    if is_Leaf:
-        ans += dist[x]
+        # 이미 방문한 노드는 스킵합니다.
+        if visited[y]: 
+            continue
 
+        visited[y] = True
+
+        # 하나라도 자식 노드가 있다면 리프 노드가 아닙니다.
+        is_leaf = False
+        
+        # root로부터의 거리를 갱신합니다.
+        depth[y] = depth[x] + 1
+
+        dfs(y)
+
+    # 리프노드라면, 해당 노드의 깊이를 더합니다.
+    if is_leaf: 
+        ans += depth[x]
+
+
+# DFS를 통해 리프노드와 리프노드의 깊이를 탐색합니다.
 visited[1] = True
 dfs(1)
 
-# dfs를 루트노드에서 한 번 진행하면 특정 노드부터 루트노드까지의 길이가 기록됨. 이후에는 리프노드의 dist만 전부 더해서 짝홀 여부 판단
-
-if ans % 2 == 0:
-    print(0)
-else:
+# 모든 리프노드의 깊이의 합이 짝수인지 홀수인지 판단해 정답을 출력합니다.
+if ans % 2 == 1: 
     print(1)
+else:
+    print(0)
