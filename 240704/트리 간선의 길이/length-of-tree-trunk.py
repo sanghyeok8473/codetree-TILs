@@ -8,11 +8,13 @@ arr = list(
     for _ in range(n - 1)
 )
 dist = [0] * (n + 1)
+not_Tree = False
 
 for x, y, d in arr:
     edges[x].append((y, d))
     edges[y].append((x, d))
-    root.remove(y)
+    if y in root:
+        root.remove(y)
 
 root = root.pop() # 루트노드 구하기
 
