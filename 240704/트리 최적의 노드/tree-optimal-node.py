@@ -1,5 +1,5 @@
 import sys
-sys.setrecursionlimit(10000)
+sys.setrecursionlimit(100000)
 
 ans = sys.maxsize
 n = int(input())
@@ -13,6 +13,7 @@ for _ in range(n-1):
     edges[y].append(x)
 
 # 1부터 n까지의 모든 노드를 dfs한다. dfs할 때마다 dist는 초기화한다. max(dist)의 최소값을 구한다.
+# 이러면 n
 
 def dfs(x):
     global max_dist, last_node
