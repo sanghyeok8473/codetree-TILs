@@ -38,9 +38,7 @@ dfs(1)
 for i in range(2, n + 1):
     if is_Leaf[i]:
         ans += dist[i]
-
-print(ans)
-
+        
 if ans % 2 == 0:
     print(0)
 else:
