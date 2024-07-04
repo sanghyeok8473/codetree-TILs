@@ -1,3 +1,6 @@
+import sys
+sys.setrecursionlimit(100000)
+
 n = int(input())
 
 edges = [[] for _ in range(n + 1)]
@@ -28,6 +31,7 @@ def dfs(x): # y에 도착하면 거리를 출력 후 종료
     for y in edges[x]:
         if not visited[y]: # y를 아직 방문한적이 없으면, x가 y의 부모이다.
             visited[y] = True
+            is_Leaf = False
             dist[y] = dist[x] + 1
             dfs(y) # dfs 진행
             
