@@ -18,7 +18,7 @@ arr = [
 
 for x, y in arr:
     edges[x].append(y)
-    
+    edges[y].append(x)
 
 def dfs(x): # y에 도착하면 거리를 출력 후 종료
     global ans
