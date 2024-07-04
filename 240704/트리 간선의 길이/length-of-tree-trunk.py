@@ -1,3 +1,6 @@
+import sys
+sys.setrecursionlimit(10000)
+
 n = int(input())
 
 root = set(range(1, n + 1))
