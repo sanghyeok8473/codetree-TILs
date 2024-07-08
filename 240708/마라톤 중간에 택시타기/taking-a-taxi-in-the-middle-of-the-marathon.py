@@ -17,7 +17,7 @@ for i in range(2, n + 1):
 for i in range(n - 1, 0, -1):
     R[i] = R[i + 1] + dist(arr[i], arr[i + 1])
 
-ans = 100000 * 1000
+ans = 100000 * 10000
 
 for i in range(2, n): # 시작점과 마지막 점은 제외
     ans = min(ans, L[i - 1] + R[i + 1] + dist(arr[i - 1] , arr[i + 1]))
