@@ -1,20 +1,28 @@
-from sortedcontainers import SortedSet
-
-# 변수 선언 및 입력:
-n, q = map(int, input().split())
-arr = list(map(int, input().split()))
-
-nums = SortedSet(arr)
-
-seq = [
+# 입력:
+n, q = tuple(map(int, input().split()))
+points = list(map(int, input().split()))
+query = [
     tuple(map(int, input().split()))
     for _ in range(q)
 ]
 
-for x, y in seq:
-    left = nums.bisect_left(x)
-    right = nums.bisect_left(y)
-    if x not in nums or y not in nums:
-        print(right - left)
-    else:
-        print(right - left + 1)
+# 변수 선언
+MAX_A = 1000000
+prefix_sum = [0] * (MAX_A + 1)
+
+# 누적합 배열을 만들어줍니다.
+for point in points:
+    prefix_sum[point] += 1
+
+for i in range(1, MAX_A + 1):
+    prefix_sum[i] += prefix_sum[i - 1]
+
+# [s, e] 구간 내의 원소의 합을 반환합니다.
+def GetSum(s, e):
+    if s == 0:
+        return prefix_sum[e]
+    return prefix_sum[e] - prefix_sum[s - 1] # s - 1을 하는 이유는, s자체가 점의 위치일 수 있기 때문임. 따라서 s-1에서 빼야 s가 점일 때 개수가 세어짐.
+
+# q번에 걸쳐 범위에 있는 점의 개수를 계산합니다.
+for (l, r) in query:
+    print(GetSum(l, r))
