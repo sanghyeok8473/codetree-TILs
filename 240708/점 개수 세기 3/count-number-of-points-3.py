@@ -3,9 +3,7 @@ from sortedcontainers import SortedSet
 n, q = map(int, input().split())
 
 arr = list(map(int, input().split()))
-nums = SortedSet()
-for num in arr:
-    nums.add(num)
+nums = SortedSet(arr)
 
 ab = [list(map(int, input().split())) for _ in range(q)]
 
