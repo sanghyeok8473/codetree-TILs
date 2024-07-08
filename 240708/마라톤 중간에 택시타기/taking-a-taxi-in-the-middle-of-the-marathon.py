@@ -15,7 +15,7 @@ for i in range(1, n + 1):
     L[i] = L[i - 1] + dist(arr[i], arr[i - 1])
 
 for i in range(n - 1, 0, -1):
-    R[i] = R[i + 1] + dist(arr[i], arr[i + 1])
+    R[i] = R[i + 1] + dist(arr[i], arr[i + 1])=
 
 ans = 100000 * 1000
 
