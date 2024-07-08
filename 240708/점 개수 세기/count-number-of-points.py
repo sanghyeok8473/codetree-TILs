@@ -14,7 +14,7 @@ for num in nums:
     cnt += 1
 
 for a, b in ab:
-    new_a = nums.bisect_right(a)
+    new_a = nums.bisect_right(a) if a >= nums[0] else 1
     new_b = nums.bisect_right(b) if b < nums[-1] else n - 1
     print(new_b - new_a + 1)
 
