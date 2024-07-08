@@ -14,7 +14,7 @@ def dist(a, b): # a점과 b점 사이의 거리를 리턴
 for i in range(1, n + 1):
     L[i] = L[i - 1] + dist(arr[i], arr[i - 1])
 
-for i in range(n - 2, 0, -1):
+for i in range(n - 1, 0, -1):
     R[i] = R[i + 1] + dist(arr[i], arr[i + 1])
 
 ans = 100000 * 1000
