@@ -16,14 +16,12 @@ prefix_sum = [
     for _ in range(n + 1)
 ]
 
-def in_range(x, y):
-    return(1 <= x <= n and 1 <= y <= n)
 
 def get_sum(x, y):
     sum_val = 0
     for i in range(x - k, x + k + 1):
         for j in range(y - k, y + k + 1):
-            if in_range(i, j) and (abs(i - x) + abs(j - y) <= k):
+            if 1 <= i <= n and 1 <= j <= n and (abs(i - x) + abs(j - y) <= k):
                 sum_val += arr[i][j]
     return sum_val
 
@@ -31,7 +29,8 @@ max_val = -1
 
 for i in range(1, n + 1):
     for j in range(1, n + 1):
-        max_val = max(max_val, get_sum(i, j))
+        prefix_sum[i][j] = get_sum(i, j)
+        max_val = max(max_val, prefix_sum[i][j])
 
 print(max_val)
 
