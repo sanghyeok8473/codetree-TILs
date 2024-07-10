@@ -15,4 +15,6 @@ for i in range(1, n + 1):
 
     sum_val -= arr[i]
 
-print(ans) if ans != 100001 else -1
+ans = -1 if ans == 100001 else ans
+
+print(ans)
