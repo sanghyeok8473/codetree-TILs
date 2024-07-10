@@ -1,39 +1,41 @@
-# 입력:
-n, k = map(int, input().split())
-
+# 변수 선언 및 입력
+n, k = tuple(map(int, input().split()))
 arr = [
-    [0] * (n + 1)
+    [0 for _ in range(n + 1)]
+    for _ in range(n + 1)
+]
+s = [
+    [0 for _ in range(n + 1)]
     for _ in range(n + 1)
 ]
 
-for i in range(1, n + 1):
-    row = list(map(int, input().split()))
-    for j in range(1, n + 1):
-        arr[i][j] = row[j - 1]
+# 부분합 계산을 원할히 하기 위해 배열을 인덱스 1부터 입력받습니다.
+for i in range(n):
+    board = list(map(int, input().split()))
+    for j in range(n):
+        arr[i + 1][j + 1] = board[j]
+    
+ans = 0
 
-prefix_sum = [
-    [0] * (n + 1)
-    for _ in range(n + 1)
-]
-
-
-def get_sum(x, y):
-    sum_val = 0
-    for i in range(x - k, x + k + 1):
-        for j in range(y - k, y + k + 1):
-            if 1 <= i <= n and 1 <= j <= n and (abs(i - x) + abs(j - y) <= k):
-                sum_val += arr[i][j]
-    return sum_val
-
-max_val = -1
-
+# 배열의 누적합을 구합니다.
 for i in range(1, n + 1):
     for j in range(1, n + 1):
-        prefix_sum[i][j] = get_sum(i, j)
-        max_val = max(max_val, prefix_sum[i][j])
+        s[i][j] = s[i][j - 1] + arr[i][j]
 
-print(max_val)
+# 모든 중심에 대해 최댓값을 구합니다.
+for i in range(1, n + 1):
+    for j in range(1, n + 1):
+        # 중심이 (i, j)일 때의 숫자 합을 구합니다.
+        sum_all = 0;
+        for r in range(i - k, i + k + 1):
+            # r행일때 (j - c ~ j + c)열 까지의 부분합을 더해줍니다.
+            c = k - abs(i - r);
 
-"""
-prefix[x][y]를 정의하는 방식을 바꿀 수 있다.  x,y에서 거리가 k이내인 점들의 합으로 정의를 하자.
-"""
+            # r행이 범위 안에 있을 경우 부분합을 더해줍니다.
+            if 1 <= r and r <= n:
+                sum_all += s[r][min(j + c, n)] - s[r][max(j - c - 1, 0)]
+        
+        ans = max(ans, sum_all)
+
+# 정답을 출력합니다.
+print(ans)
