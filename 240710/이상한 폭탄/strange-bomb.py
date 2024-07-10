@@ -5,18 +5,19 @@ arr = [
     for _ in range(n)
 ]
 
-R = [{-1} for _ in range(n + 1)] # R[x] : x번지에서 터질 수 있는 폭탄들의 번호들
-ans = - 1
+R = [-1 for _ in range(n)] # R[x] : 오른쪽에서 R[x]가 나타나는 idx값
+last = [-1 for _ in range(1000001)] # last[x] : x가 마지막으로 확인된 값
 
+for i in range(n - 1, 0-1 -1):
+    R[i] = last[arr[i]]
+    last[arr[i]] = i
+
+ans = -1
 for i in range(n):
-    for j in range(i - k, i + k + 1):
-        if 0 <= j < n and i != j and arr[j] == arr[i]:
-            R[j].add(arr[i])
-            ans = max(ans, arr[i])
-
+    if R[i] != 1 and R[i] - i <= k:
+        ans = max(ans, arr[i])
 
 print(ans)
-
 
 """
 ans = -1
