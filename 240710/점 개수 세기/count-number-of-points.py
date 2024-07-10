@@ -17,8 +17,16 @@ ab = [
 ]
 
 for a, b in ab:
-    ans = nums.bisect_left(b) - nums.bisect_left(a)
-    if a not in nums or b not in nums:
-        print(ans)
+    if a > nums[-1] or b < nums[0]:
+        print(0)
     else:
-        print(ans + 1)
+        ans = nums.bisect_left(b) - nums.bisect_left(a)
+        
+        if a < nums[0] and b in nums:
+            ans += 1
+
+
+        if a not in nums or b not in nums:
+            print(ans)
+        else:
+            print(ans + 1)
