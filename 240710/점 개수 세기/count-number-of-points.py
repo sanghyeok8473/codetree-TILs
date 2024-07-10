@@ -17,8 +17,8 @@ ab = [
 ]
 
 for a, b in ab:
-    ans = nums.bisect_right(b) - nums.bisect_right(a)
-    if a not in nums and b not in nums:
+    ans = nums.bisect_left(b) - nums.bisect_left(a)
+    if a not in nums or b not in nums:
         print(ans)
     else:
         print(ans + 1)
