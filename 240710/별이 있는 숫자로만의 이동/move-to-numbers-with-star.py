@@ -27,12 +27,13 @@ def get_sum(x, y):
                 sum_val += arr[i][j]
     return sum_val
 
-
+max_val = -1
 for i in range(1, n + 1):
     for j in range(1, n + 1):
         prefix_sum[i][j] = get_sum(i, j)
+        max_val = max(max_val, prefix_sum[i][j])
 
-print(max(prefix_sum))
+print(max_val)
 
 """
 prefix[x][y]를 정의하는 방식을 바꿀 수 있다.  x,y에서 거리가 k이내인 점들의 합으로 정의를 하자.
