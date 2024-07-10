@@ -21,8 +21,8 @@ for a, b in ab:
         print(0)
     else:
         ans = nums.bisect_left(b) - nums.bisect_left(a)
-        
-        if a < nums[0] and b in nums:
+
+        if a < nums[0] and b in nums or (ans == 0 and b in nums):
             ans += 1
 
 
