@@ -6,14 +6,14 @@ arr = [
 ]
 
 left = 1
-right = min(arr)
+right = max(arr)
 res = 0
 
 def findMax(x):
     sum_val = 0
     for el in arr:
         sum_val += (el // x)
-        
+
     return sum_val >= m
 
 while left <= right:
