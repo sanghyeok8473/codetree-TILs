@@ -13,11 +13,15 @@ ans = -1        # 수정되는 최종 정답.
 def is_possible(count): # 한 번에 오를 수 있는 사람들을 정했을 때, 이것이 성립하는지 확인해줌
     # 맨 첫 count개수만큼 만들고, 나머지 부분에서의 max값이 count개가 들어있는 배열의 min값보다 크면 안됨.
     last_idx = count - 1
-    on_stage = arr[last_idx - count + 1:last_idx + 1]
-    last = arr[last_idx + 1:] if count < n else [0]
 
-    if (min(on_stage) + max(last)) > tmax:
-        return False
+    while last_idx < n:
+        on_stage = arr[last_idx - count + 1:last_idx + 1]
+        last = arr[last_idx + 1:] if count < n else [0]
+
+        if (min(on_stage) + max(last)) > tmax:
+            return False
+
+        last_idx += count
     
     return True
     
