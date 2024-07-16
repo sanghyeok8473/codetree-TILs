@@ -10,7 +10,7 @@ position = [
 # x1의 lower_bound x2의 lower_bound의 차이를 구하면 됨
 
 for x1, x2 in position:
-    left, right, res = 1, n, 0
+    left, right, res = 1, n, n + 1
 
     while left <= right:
         mid = (left + right) // 2
@@ -21,9 +21,9 @@ for x1, x2 in position:
         else:
             left = mid + 1
     
-    result = res
+    result = -res
 
-    left, right, res = 1, n, 0
+    left, right, res = 1, n, n + 1
 
     while left <= right:
         mid = (left + right) // 2
@@ -34,6 +34,6 @@ for x1, x2 in position:
         else:
             left = mid + 1
 
-    result = abs(result - res)
+    result += res
 
     print(result)
