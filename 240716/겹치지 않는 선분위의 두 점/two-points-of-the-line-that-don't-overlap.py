@@ -15,14 +15,11 @@ right = 10**18 # 답이 될 수 있는 최대값
 ans = -1        # 수정되는 최종 정답. 
 
 def is_possible(x): # 점들 사이 거리의 최대값이 x일때 이것이 가능한지 리턴해주는 함수
-    cnt = 1
+    cnt = 0
     last_num = arr[0][0] # 정렬되어 있으므로 젤 첫번째 점으로 시작하는 것이 좋다.
 
     for a, b in arr:
-        for i in range(a, b + 1):
-            if i - last_num >= x:
-                cnt += 1
-                last_num = i
+        cnt += (b - a) // x + 1
     
     return cnt >= n
 
