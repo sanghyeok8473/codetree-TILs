@@ -16,7 +16,6 @@ ans = 0        # 수정되는 최종 정답.
 
 def is_possible(x): # x초 안에 모든 통로를 통해 지나갈 수 있는지 확인. 
     cnt = 0
-    last_idx = 0
     for num in arr: # x를 각 숫자들로 나눈 몫들의 합을 cnt
         cnt += x // num
 
