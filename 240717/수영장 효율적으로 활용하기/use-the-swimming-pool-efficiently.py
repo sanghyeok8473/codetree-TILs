@@ -7,6 +7,9 @@ right = sum(arr) # 최대 이용시간의 합
 ans = -1
 
 def is_possible(time):
+    if time < max(arr):
+        return False
+        
     cnt = 1
     now = arr[0]
 
