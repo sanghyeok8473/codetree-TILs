@@ -10,8 +10,8 @@ arr = [
 
 arr.sort() # 정렬. a를 기준으로 정렬한 다음 b를 기준으로 정렬될 것임.
 
-left = 0            # 답이 될 수 있는 최소값 
-right = arr[m - 1][1] - arr[0][0] # 답이 될 수 있는 최대값
+left = 0            # 답이 될 수 있는 최소값은 길이이므로 0
+right = arr[m - 1][1] - arr[0][0] # 답이 될 수 있는 최대값은 최대값 - 최소값
 ans = -1        # 수정되는 최종 정답. 
 
 def is_possible(x): # 점들 사이 거리의 최대값이 x일때 이것이 가능한지 리턴해주는 함수
@@ -20,17 +20,17 @@ def is_possible(x): # 점들 사이 거리의 최대값이 x일때 이것이 가
 
     for a, b in arr:
         a = max(a, last_num + x) # 시작점을 어디로 잡을지 정해줌
+
         if a > b: # 여기에는 점을 놓을 수 없음
             continue
         elif a == b: # 여기에 점을 놓고 가면 됨.
             cnt += 1
             last_num = a
-            continue
         else:
             spots = (b - a) // x + 1
             cnt += spots
-            last_num += x * spots
-    
+            last_num = a + (x * (spots - 1))
+            
     return cnt >= n
 
 
