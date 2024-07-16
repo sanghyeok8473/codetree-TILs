@@ -7,7 +7,8 @@ position = [
     for _ in range(m)
 ]
 
-# x1의 lower_bound x2의 lower_bound의 차이를 구하면 됨
+# x1의 lower_bound x2의 upper_bound의 차이를 구하면 됨
+# 양쪽다 소속된 점이면 1을 더해주어야함
 
 for x1, x2 in position:
     left, right, res = 1, n, n + 1
@@ -30,7 +31,7 @@ for x1, x2 in position:
     while left <= right:
         mid = (left + right) // 2
 
-        if spots[mid] >= x2:
+        if spots[mid] > x2:
             res = mid
             right = mid - 1
         else:
