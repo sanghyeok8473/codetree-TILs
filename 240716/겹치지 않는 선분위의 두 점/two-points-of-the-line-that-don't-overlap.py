@@ -15,26 +15,26 @@ right = 10**18 # 답이 될 수 있는 최대값
 ans = -1        # 수정되는 최종 정답. 
 
 def is_possible(x): # 점들 사이 거리의 최대값이 x일때 이것이 가능한지 리턴해주는 함수
-    cnt = 0
-    last_num = arr[0][0]
-    for a, b in arr: # x를 각 숫자들로 나눈 몫들의 합을 cnt
-        if a - last_num >= x:
-            cnt += 1
-            last_num = a
-        elif b - last_num >= x:
-            cnt += 1
-            last_num = b
+    cnt = 1
+    last_num = arr[0][0] # 정렬되어 있으므로 젤 첫번째 점으로 시작하는 것이 좋다.
 
+    for a, b in arr:
+        for i in range(a, b + 1):
+            if i - last_num >= x:
+                cnt += 1
+                last_num = i
+    
     return cnt >= n
+
 
 while left <= right:            
     mid = (left + right) // 2  
     
-    if is_possible(mid): # mid가 더 작아져 된다는 의미이다.
-        right = mid - 1 
+    if is_possible(mid): # mid가 더 커져야 된다는 의미이다. n이 여유가 있을 필요는 없으므로
+        left = mid + 1
         ans = mid
-    else:
-        left = mid + 1             
+    else: # 점의 개수가 충족이 안된다는 의미이므로 mid 가 더 작아져야 한다는 뜻이다.
+        right = mid - 1      
 
 # 정답을 출력합니다.
 print(ans)
