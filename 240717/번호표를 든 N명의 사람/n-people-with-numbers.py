@@ -16,7 +16,7 @@ def is_possible(count): # 한 번에 오를 수 있는 사람들을 정했을 �
 
     while last_idx < n:
         on_stage = arr[last_idx - count + 1:last_idx + 1]
-        last = arr[last_idx + 1:] if count < n else [0]
+        last = arr[last_idx + 1:] if count < n and last_idx + 1 <= n - 1 else [0]
 
         if (min(on_stage) + max(last)) > tmax:
             return False
