@@ -7,13 +7,13 @@ right = sum(arr) # 최대 이용시간의 합
 ans = -1
 
 def is_possible(time):
-    if time < max(arr):
-        return False
-        
     cnt = 1
-    now = arr[0]
+    now = 0
 
-    for i in range(1, n):
+    for i in range(n):
+        if arr[i] > time:
+            return False
+            
         if arr[i] + now > time: # 만약 현재 사람이 레일에 들어가면 시간이 넘어버리면
             cnt += 1
             now = arr[i]
