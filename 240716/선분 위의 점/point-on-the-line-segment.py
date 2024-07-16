@@ -11,6 +11,8 @@ position = [
 
 for x1, x2 in position:
     left, right, res = 1, n, n + 1
+    
+    res_cnt = 1 if (x1 in spots and x2 in spots) else 0
 
     while left <= right:
         mid = (left + right) // 2
@@ -34,6 +36,6 @@ for x1, x2 in position:
         else:
             left = mid + 1
 
-    result += res
+    result += (res + res_cnt)
 
     print(result)
