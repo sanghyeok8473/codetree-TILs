@@ -35,4 +35,7 @@ while pq:
 
 
 for i in range(1, n + 1):
-    print(dist[i])
+    if dist[i] == sys.maxsize:
+        print(-1)
+    else:
+        print(dist[i])
